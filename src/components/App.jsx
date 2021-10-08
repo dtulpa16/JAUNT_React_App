@@ -5,6 +5,16 @@ import axios from "axios";
 import { render } from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import jwtDecode from 'jwt-decode';
+import ClientRegister from './ClientRegister/ClientRegister';
+import ClientAccount from './ClientAccount/ClientAccount';
+import Excercises from './Exercises/Exercises';
+import Forums from './Forums/Forums';
+import FromTheExperts from './FromTheExperts/FromTheExperts';
+import Home from './Home/Home';
+import Login from './Login/Login';
+import NavBar from './NavBar/NavBar';
+import TrainerAccount from './TrainerAccount/TrainerAccount';
+import TrainerRegister from './TrainerRegister/TrainerRegister';
 
 
 
@@ -43,14 +53,15 @@ render(){
                     }
                 }}
                 />
-                <Route path="/products" render={props => <ProductList {...props} user={this.state.user}/>}/>
-                <Route path="/login" component={Login}/>
-                <Route path="/register" component={Register}/>
-                <Route path="/user_home" component={BuyerHome}/>
-                <Route path="/productsform" component={ProductsForm}/>
-                <Route path="/product_description" component={ProductDescription}/>
-                <Route path="/shopping_cart" render={props => <ShoppingCart {...props} user={this.state.user}/>}/>
-                <Route path="/checkout" component={CheckOut}/>
+                <Route path="/forums" component={Forums}/>
+                <Route path="/clientaccount" component={ClientAccount}/>
+                <Route path="/clientregister" component={ClientRegister}/>
+                <Route path="/exercises" component={Excercises}/>
+                <Route path="/fromtheexperts" component={FromTheExperts}/>
+                <Route path="/home" component={Home}/>
+                <Route path="/login" component = {Login}/>
+                <Route path="/traineraccount" component={TrainerAccount}/>
+                <Route path="/trainerregister" component={TrainerRegister}/>
             </Switch>
         </div>
         )
