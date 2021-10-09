@@ -21,7 +21,7 @@ const Login = () => {
       let payload = {username: login, password:pass}
       let response = await axios.post(`http://127.0.0.1:8000/api/auth/login/`, payload)
       console.log(response.data)
-      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('token', response.data.access);
       window.location = '/';
       //resets form
       setUserName('');

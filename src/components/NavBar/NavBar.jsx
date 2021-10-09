@@ -14,6 +14,7 @@ const NavBar = ({user}) => {
   <ul class="navigation">
       {user &&
           <React.Fragment>
+            {console.log(user)}
             <h4>Welcome {user.username}!     </h4>
             <Link to = '/clientaccount'>
               <li class="parent" >Client account</li>
