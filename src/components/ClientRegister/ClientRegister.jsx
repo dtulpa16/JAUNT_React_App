@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CreateWorkout from "../../Hooks/CreateWorkout";
 import {Component, Route, Link } from 'react';
+import { Redirect } from "react-router";
 
 
 class ClientRegister extends Component {
@@ -23,23 +24,10 @@ class ClientRegister extends Component {
             password: '',
             password2: '',
             calories: 0,
+            isRegistered: false,
+            userId:0
          }
     }
-
-    // const [username,setUsername] = useState([''])
-    // const [email,setEmail] = useState([''])
-    // const [firstname,setFirstname] = useState([''])
-    // const [lastname,setLastname] = useState([''])
-    // const [isemployee,setIsemployee] = useState(false)
-    // const [age,setAge] = useState(0)
-    // const [goal,setGoal] = useState([''])
-    // const [height,setHeight] = useState(0)
-    // const [weight,setWeight] = useState(0)
-    // const [gender,setGender] = useState([''])
-    // const [experience,setExperience] = useState([''])
-    // const [password,setPassword] = useState([''])
-    // const [calorie,setCalories] = useState(0)
-
     componentDidMount(){
         this.getUser()
     }
@@ -112,6 +100,7 @@ class ClientRegister extends Component {
     }
 
     userWorkout = (id,experience) => {
+        this.state.userId = id
         if(experience == 1){
             let payload = {
                 "user": id,
@@ -242,7 +231,10 @@ class ClientRegister extends Component {
     }
 
     async postWorkout(payload) {
-        let response = await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/workout/`, payload);
+        let response = await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/workout/`, payload)
+        this.setState({
+            isRegistered:true
+        })
         
         if (response) {
             console.log("good api call");
@@ -254,6 +246,10 @@ class ClientRegister extends Component {
 
 
 render(){
+    if (this.state.isRegistered) {
+        // redirect to home if signed up
+        return <Redirect to = {{ pathname: "/choosetrainer",state:{ id :this.state.userId} }} />;
+      }
   return ( 
         <React.Fragment>
             <form className= "register" onSubmit={(event) => this.handleSubmit (event)}>
