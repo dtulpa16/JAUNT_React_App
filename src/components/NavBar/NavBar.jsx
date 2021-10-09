@@ -39,7 +39,9 @@ const NavBar = ({user}) => {
             <Link to = '/Login'>
               <li class="parent">Login</li>
             </Link>
-
+            <Link to = '/choosetrainer'>
+              <li class="parent">Trainers</li>
+            </Link>
         </React.Fragment>  
         }
         </ul>

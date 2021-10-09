@@ -15,6 +15,7 @@ import Login from './Login/Login';
 import NavBar from './NavBar/NavBar';
 import TrainerAccount from './TrainerAccount/TrainerAccount';
 import TrainerRegister from './TrainerRegister/TrainerRegister';
+import ChooseTrainer from './ChooseTrainer/ChooseTrainer';
 
 
 
@@ -62,6 +63,7 @@ render(){
                 <Route path="/login" component = {Login}/>
                 <Route path="/traineraccount" component={TrainerAccount}/>
                 <Route path="/trainerregister" component={TrainerRegister}/>
+                <Route path="/choosetrainer" component={ChooseTrainer}/>
             </Switch>
         </div>
         )

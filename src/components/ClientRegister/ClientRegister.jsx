@@ -70,7 +70,7 @@ class ClientRegister extends Component {
             "last_name": this.state.lastname,
             "is_employee": this.state.isemployee,
             "age": this.state.age,
-            "calories": this.state.calorie,
+            "calories": this.state.calories,
             "goal": this.state.goal,
             "height": this.state.height,
             "weight": this.state.weight,
@@ -103,10 +103,10 @@ class ClientRegister extends Component {
     getCalories = (bmr) =>{
         if(this.state.goal == "weight loss"){
             let clientCalories = parseInt(bmr - 350)
-            this.state.calorie = clientCalories
+            this.state.calories = clientCalories
         }else if(this.state.goal == "weight gain"){
             let clientCalories = parseInt(bmr + 350)
-            this.state.calorie = clientCalories
+            this.state.calories = clientCalories
         }
         return
     }
@@ -140,18 +140,102 @@ class ClientRegister extends Component {
                 "day2ex4": "Tricep rope pushdown",
                 "day2ex4sets": 3,
                 "day2ex4reps": 15,
-                "day3ex1": "Pullup",
+                "day3ex1": "Lat Pulldown",
                 "day3ex1sets": 3,
-                "day3ex1reps": 6,
-                "day3ex2": "Dumbbell row",
+                "day3ex1reps": 12,
+                "day3ex2": "Row Machine",
                 "day3ex2reps": 3,
-                "day3ex2sets": 12,
-                "day3ex3": "Lat pulldown",
+                "day3ex2sets": 10,
+                "day3ex3": "Reverse Flies",
                 "day3ex3sets": 3,
-                "day3ex3reps": 15,
+                "day3ex3reps": 20,
                 "day3ex4": "Bicep Curls",
                 "day3ex4sets": 2,
                 "day3ex4reps": 25
+            }
+            this.postWorkout(payload)
+        }else if(experience == 2){
+            let payload = {
+                "user": id,
+                "notes": "No notes",
+                "day1ex1": "Barbell Back Squat",
+                "day1ex1sets": 4,
+                "day1ex1reps": 8,
+                "day1ex2": "Leg press machine",
+                "day1ex2reps": 4,
+                "day1ex2sets": 12,
+                "day1ex3": "Stiff leg deadlift",
+                "day1ex3sets": 3,
+                "day1ex3reps": 15,
+                "day1ex4": "Leg Extention Machine",
+                "day1ex4sets": 3,
+                "day1ex4reps": 25,
+                "day2ex1": "Bench Press",
+                "day2ex1sets": 4,
+                "day2ex1reps": 8,
+                "day2ex2": "Overhead Press",
+                "day2ex2reps": 3,
+                "day2ex2sets": 6,
+                "day2ex3": "Dumbbell Side Raise",
+                "day2ex3sets": 4,
+                "day2ex3reps": 25,
+                "day2ex4": "Pec Flies",
+                "day2ex4sets": 3,
+                "day2ex4reps": 15,
+                "day3ex1": "Pullup",
+                "day3ex1sets": 3,
+                "day3ex1reps": 6,
+                "day3ex2": "Barbell Row",
+                "day3ex2reps": 4,
+                "day3ex2sets": 10,
+                "day3ex3": "Facepulls(Cables)",
+                "day3ex3sets": 4,
+                "day3ex3reps": 20,
+                "day3ex4": "Bicep Curls",
+                "day3ex4sets": 4,
+                "day3ex4reps": 20
+            }
+            this.postWorkout(payload)
+        }else if(experience == 3){
+            let payload = {
+                "user": id,
+                "notes": "No notes",
+                "day1ex1": "Barbell Back Squat",
+                "day1ex1sets": 5,
+                "day1ex1reps": 5,
+                "day1ex2": "Deadlifts",
+                "day1ex2reps": 3,
+                "day1ex2sets": 8,
+                "day1ex3": "Dumbbell Lunges(Reps per leg)",
+                "day1ex3sets": 3,
+                "day1ex3reps": 15,
+                "day1ex4": "Leg Extention Machine",
+                "day1ex4sets": 4,
+                "day1ex4reps": 20,
+                "day2ex1": "Bench Press",
+                "day2ex1sets": 5,
+                "day2ex1reps": 5,
+                "day2ex2": "Overhead Press",
+                "day2ex2reps": 4,
+                "day2ex2sets": 8,
+                "day2ex3": "Dumbbell Side Raise",
+                "day2ex3sets": 3,
+                "day2ex3reps": 30,
+                "day2ex4": "Pec Flies",
+                "day2ex4sets": 4,
+                "day2ex4reps": 15,
+                "day3ex1": "Pullup",
+                "day3ex1sets": 4,
+                "day3ex1reps": 10,
+                "day3ex2": "Pendlay Row",
+                "day3ex2reps": 4,
+                "day3ex2sets": 12,
+                "day3ex3": "Facepulls(Cables)",
+                "day3ex3sets": 4,
+                "day3ex3reps": 20,
+                "day3ex4": "Bicep Curls",
+                "day3ex4sets": 4,
+                "day3ex4reps": 20
             }
             this.postWorkout(payload)
         }
