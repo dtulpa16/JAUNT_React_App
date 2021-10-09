@@ -16,6 +16,7 @@ import NavBar from './NavBar/NavBar';
 import TrainerAccount from './TrainerAccount/TrainerAccount';
 import TrainerRegister from './TrainerRegister/TrainerRegister';
 import ChooseTrainer from './ChooseTrainer/ChooseTrainer';
+import ClientNutrition from './ClientNutrition/ClientNutrition';
 
 
 
@@ -64,6 +65,7 @@ render(){
                 <Route path="/traineraccount" component={TrainerAccount}/>
                 <Route path="/trainerregister" component={TrainerRegister}/>
                 <Route path="/choosetrainer" component={ChooseTrainer}/>
+                <Route path="/clientnutrition" component={ClientNutrition}/>
             </Switch>
         </div>
         )

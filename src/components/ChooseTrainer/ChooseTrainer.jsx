@@ -24,12 +24,12 @@ const ChooseTrainer = (props) => {
         console.log(listOfTrainers)
     }
 
-  return ( 
-    <React.Fragment>
-        {users.map((element) => element.is_employee && 
-        <h1>{element.username}</h1>)}
-    </React.Fragment>
-   );
+    return( 
+      users.map((element) => element.is_employee &&
+    <React.Fragment>    
+        <h1>{element.username}</h1>
+    </React.Fragment>)
+  );
 }
 
 export default ChooseTrainer ;
