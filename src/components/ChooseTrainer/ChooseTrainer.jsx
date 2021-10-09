@@ -10,7 +10,7 @@ const ChooseTrainer = (props) => {
 
     useEffect(()=>{
         getUsers()
-    },[])
+    },[''])
 
     async function getUsers(){
         await axios.get(`http://127.0.0.1:8000/api/auth/`).then(response => setUsers(response.data))

@@ -56,7 +56,7 @@ render(){
                 }}
                 />
                 <Route path="/forums" component={Forums}/>
-                <Route path="/clientaccount" component={ClientAccount}/>
+                <Route path="/clientaccount" render = {props=> <ClientAccount {...props} user = {this.state.user}/>}/>
                 <Route path="/clientregister" component={ClientRegister}/>
                 <Route path="/exercises" component={Excercises}/>
                 <Route path="/fromtheexperts" component={FromTheExperts}/>
@@ -65,7 +65,7 @@ render(){
                 <Route path="/traineraccount" component={TrainerAccount}/>
                 <Route path="/trainerregister" component={TrainerRegister}/>
                 <Route path="/choosetrainer" component={ChooseTrainer}/>
-                <Route path="/clientnutrition" component={ClientNutrition}/>
+                <Route path="/clientnutrition" render = {props=> <ClientNutrition {...props} user = {this.state.user}/>}/>
             </Switch>
         </div>
         )

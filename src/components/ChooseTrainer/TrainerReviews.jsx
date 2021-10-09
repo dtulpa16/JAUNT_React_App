@@ -8,7 +8,7 @@ const TrainerReviews = (props) => {
 
     useEffect(()=>{
         getReviews()
-    })
+    },[])
 
     async function getReviews(){
         await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/review/${props.trainer}/`).then(response => {setReviews(response.data)})
