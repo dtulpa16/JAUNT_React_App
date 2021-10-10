@@ -56,7 +56,7 @@ render(){
                 }}
                 />
                 <Route exact path="/home" component={Home}/>
-                <Route path="/forums" component={Forums}/>
+                <Route path="/forums" render = {props=> <Forums {...props} user = {this.state.user}/>}/>
                 <Route path="/clientaccount" render = {props=> <ClientAccount {...props} user = {this.state.user}/>}/>
                 <Route path="/clientregister" component={ClientRegister}/>
                 <Route path="/exercises" component={Excercises}/>
