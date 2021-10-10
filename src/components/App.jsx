@@ -41,8 +41,8 @@ class App extends Component{
 // Establish url enpoints to get to a certain page vvv
 render(){
     const user = this.state.user;
-        return(
-            <div className = "App">
+    return(
+        <div className = "App">
             <NavBar className="navbar" user = {user}/>   
             <Switch>
                 <Route
@@ -55,6 +55,7 @@ render(){
                     }
                 }}
                 />
+                <Route exact path="/home" component={Home}/>
                 <Route path="/forums" component={Forums}/>
                 <Route path="/clientaccount" render = {props=> <ClientAccount {...props} user = {this.state.user}/>}/>
                 <Route path="/clientregister" component={ClientRegister}/>

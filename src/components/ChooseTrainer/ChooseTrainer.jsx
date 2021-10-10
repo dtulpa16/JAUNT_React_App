@@ -2,11 +2,12 @@ import React, {useEffect, useState, Component} from "react";
 import axios from "axios";
 import "./ChooseTrainer.css";
 import TrainerReviews from "./TrainerReviews";
+import { Redirect } from "react-router";
 
 
 const ChooseTrainer = (props) => {
     const [users, setUsers] = useState([])
-    const [trainers, setTrainers] = useState([])
+    const [isRegistered, setIsRegistered] = useState(false)
 
     useEffect(()=>{
         getUsers()
@@ -27,10 +28,16 @@ const ChooseTrainer = (props) => {
 
     async function selectTrainer(trainer){
         let payload = {trainer: trainer, client: props.location.state.id}
-        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/assign/`, payload)
+        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/assign/`, payload).then(response => {if (response.status === 200){setIsRegistered(true)}})
     }
 
+    if (isRegistered == true) {
+        // redirect to home if signed up
+        return <Redirect to = {{ pathname: "/home"}} />;
+      }
+
     return( 
+        
       users.map((element) => element.is_employee &&
     <React.Fragment>    
         <table class="rwd-table">

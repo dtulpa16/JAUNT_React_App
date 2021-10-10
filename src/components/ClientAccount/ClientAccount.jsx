@@ -1,6 +1,9 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import Excercises from "../Exercises/Exercises";
+import PushExSub from "../Exercises/PushExSub";
+import PullExSub from "../Exercises/PullExSub";
 
 
 const ClientAccount = (props) => {
@@ -21,8 +24,8 @@ return (
                   <tr>
                       <th>Notes From Trainer</th>
                       <th>Exercise </th>
-                      <th>Reps</th>
                       <th>Sets</th>
+                      <th>Reps</th>
                   </tr>
     {userWorkout.map((element) =>
                   <><tbody>
@@ -57,8 +60,8 @@ return (
                   <tr>
                       <th>Notes From Trainer</th>
                       <th>Exercise </th>
-                      <th>Reps</th>
                       <th>Sets</th>
+                      <th>Reps</th>
                   </tr>
     {userWorkout.map((element) =>
                   <><tbody>
@@ -93,8 +96,8 @@ return (
                   <tr>
                       <th>Notes From Trainer</th>
                       <th>Exercise </th>
-                      <th>Reps</th>
                       <th>Sets</th>
+                      <th>Reps</th>
                   </tr>
     {userWorkout.map((element) =>
                   <><tbody>
@@ -130,8 +133,8 @@ return (
                   <tr>
                       <th>Notes From Trainer</th>
                       <th>Exercise </th>
-                      <th>Reps</th>
                       <th>Sets</th>
+                      <th>Reps</th>
                   </tr>
     {userWorkout.map((element) =>
                   <><tbody>
