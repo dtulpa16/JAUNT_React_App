@@ -7,10 +7,11 @@ const Forums = (props) => {
     const [post, setPost] = useState([''])
     const [currentUser, setCurrentUser] = useState([''])
     const [creaters, setCreaters] = useState([])
+    const [newPost, setNewPost] = useState(false)
 
     useEffect(() => {
         getCurrentUser()
-    },[props]);
+    },[]);
 
     const handleChange = (event)=>{
         setPost(event.target.value);
@@ -18,16 +19,16 @@ const Forums = (props) => {
     
 
     const handleSubmit =(event)=>{
-        event.preventDefault();
+      setNewPost(true)
         let newPost= {
             user:currentUser.id,
             body:post,
         }
-
+        setNewPost(false)
           addNewPost(newPost)
       }
       async function addNewPost(newPost){
-        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`,newPost);
+        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`,newPost).then(res=>{setCreaters(res.data)});
       }
 
       async function getCurrentUser(){

@@ -17,7 +17,7 @@ const PostCreater = (props) => {
 
     return ( 
         <div>  
-        {user.username} {user.is_employee && <h6>(Trainer)</h6>}
+        User: {user.username} {user.is_employee && <h6>(Trainer)</h6>}
         </div>
      );
 }
