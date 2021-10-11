@@ -17,7 +17,8 @@ const DisplayForumPost = (props) => {
     },[])
 
     const handleSubmit = (e,id) =>{
-        let newReply = {comment: id, body: reply}
+        e.preventDefault()
+        let newReply = {comment: id, body: reply, user:props.user.user_id}
         postReplies(newReply)
     }
 
@@ -34,7 +35,7 @@ const DisplayForumPost = (props) => {
         <React.Fragment>
         {posts.map((element)=><div><p><PostCreater creator={element.user}/>{element.body}</p>
 
-        <form className="reply" type = 'submit' onSubmit = {e => handleSubmit(e,element.id)} return false>
+        <form className="reply" type = 'submit' onSubmit = {e => handleSubmit(e,element.id, element.user)} return false>
             <input className="Reply" name = "reply" onChange={handleChange} placeholder="Reply" type='text'></input>
             <button type = "submit">Reply!</button>
             </form>

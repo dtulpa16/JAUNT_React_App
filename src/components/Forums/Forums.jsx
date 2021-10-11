@@ -3,15 +3,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import DisplayForumPost from "./DisplayForumPost";
 
-const Forums = (props) => {
+const Forums = ({user}) => {
     const [post, setPost] = useState([''])
-    const [currentUser, setCurrentUser] = useState([''])
-    const [creaters, setCreaters] = useState([])
     const [newPost, setNewPost] = useState(false)
 
     useEffect(() => {
-        getCurrentUser()
-    },[]);
+        
+    },[post]);
 
     const handleChange = (event)=>{
         setPost(event.target.value);
@@ -19,20 +17,17 @@ const Forums = (props) => {
     
 
     const handleSubmit =(event)=>{
+      event.preventDefault()
       setNewPost(true)
         let newPost= {
-            user:currentUser.id,
+            user:user.user_id,
             body:post,
         }
         setNewPost(false)
           addNewPost(newPost)
       }
       async function addNewPost(newPost){
-        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`,newPost).then(res=>{setCreaters(res.data)});
-      }
-
-      async function getCurrentUser(){
-        await axios.get(`http://127.0.0.1:8000/api/auth/${props.user.user_id}/`).then(response => {setCurrentUser(response.data)})
+        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`,newPost);
       }
 
 
@@ -44,7 +39,7 @@ const Forums = (props) => {
                 <input name= "post" onChange={handleChange} value={post}/>
                 <button type = "submit">Post!</button>
                 </form> 
-                <DisplayForumPost posts ={post}/>
+                <p><DisplayForumPost posts ={post} user = {user}/></p>
         </React.Fragment>
      );
 }

@@ -17,6 +17,8 @@ import TrainerAccount from './TrainerAccount/TrainerAccount';
 import TrainerRegister from './TrainerRegister/TrainerRegister';
 import ChooseTrainer from './ChooseTrainer/ChooseTrainer';
 import ClientNutrition from './ClientNutrition/ClientNutrition';
+import DisplayForumPost from './Forums/DisplayForumPost';
+import ReviewCreater from './Forums/ReviewCreater';
 
 
 
@@ -56,8 +58,10 @@ render(){
                 }}
                 />
                 <Route exact path="/home" component={Home}/>
-                <Route path="/forums" render = {props=> <Forums {...props} user = {this.state.user}/>}/>
+                <Route path="/forums" render = {props=> <Forums {...props} user = {user}/>}/>
                 <Route path="/clientaccount" render = {props=> <ClientAccount {...props} user = {this.state.user}/>}/>
+                <Route path="/forumposts" render = {props=> <DisplayForumPost {...props} user = {user}/>}/>
+                <Route path="/reviewcreater" render = {props=> <ReviewCreater {...props} user = {user}/>}/>
                 <Route path="/clientregister" component={ClientRegister}/>
                 <Route path="/exercises" component={Excercises}/>
                 <Route path="/fromtheexperts" component={FromTheExperts}/>

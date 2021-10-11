@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import ReviewCreater from "./ReviewCreater";
 
 
 const DisplayReplies = (props) => {
@@ -16,7 +17,7 @@ const DisplayReplies = (props) => {
 
     return(
         <div className="replies">
-        {replies.map((element)=><tr> Replies: {element.body}</tr>)}
+        Replies:<hr/>{replies.map((element)=><div><p><ReviewCreater user= {element.user}/></p><p>{element.body}<hr></hr></p></div>)}
         </div>
     )}
 export default DisplayReplies;
