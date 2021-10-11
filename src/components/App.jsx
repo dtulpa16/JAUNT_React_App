@@ -68,7 +68,7 @@ render(){
                 <Route path="/fromtheexperts" component={FromTheExperts}/>
                 <Route path="/home" component={Home}/>
                 <Route path="/login" component = {Login}/>
-                <Route path="/traineraccount" component={TrainerAccount}/>
+                <Route path="/traineraccount" render = {props=> <TrainerAccount {...props} user = {user}/>}/>
                 <Route path="/trainerregister" component={TrainerRegister}/>
                 <Route path="/choosetrainer" component={ChooseTrainer}/>
                 <Route path="/clientnutrition" render = {props=> <ClientNutrition {...props} user = {this.state.user}/>}/>

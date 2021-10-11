@@ -38,8 +38,7 @@ const ChooseTrainer = (props) => {
 
     return( 
         
-      users.map((element) => element.is_employee &&
-    <React.Fragment>    
+        <React.Fragment>    
         <table class="rwd-table">
                     <tr>
                         <th>Trainer</th>
@@ -47,6 +46,7 @@ const ChooseTrainer = (props) => {
                         <th>Gender</th>
                         <th>Client Reviews</th>
                     </tr>
+        {users.map((element) => element.is_employee &&
                     <><tbody>
                     <tr class="active-row">
                         <td data-th="Movie Title">{element.first_name} {element.last_name}</td>
@@ -55,10 +55,10 @@ const ChooseTrainer = (props) => {
                         <td><TrainerReviews trainer = {element.id}/></td>
                         <td><div class="button_slide slide_left" onClick={() => selectTrainer(element.id)}>Select Trainer!</div></td>
                      </tr>
-                     </tbody></>
+                     </tbody></>)}
              
             </table>
-    </React.Fragment>)
+    </React.Fragment>
   );
 }
 

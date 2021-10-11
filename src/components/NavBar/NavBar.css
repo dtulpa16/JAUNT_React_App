@@ -24,7 +24,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: #222;
+    background-color: rgb(158, 230, 240);
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
     color: white;
     overflow: hidden;
@@ -35,13 +35,14 @@ body {
     display: flex;
   }
   .navigationWrapper .logoWrapper .stylish {
-    font-weight: bold;
+    
     font-size: 45px;
   }
   .navigationWrapper .logoWrapper .logo {
+    font-weight: bold;
     padding-left: 4px;
     font-size: 45px;
-    color: #ea4f4c;
+    color: #144bff;
   }
   .navigationWrapper .navigation {
     display: flex;
