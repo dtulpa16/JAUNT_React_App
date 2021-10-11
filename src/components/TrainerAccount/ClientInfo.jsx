@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ModifyCals from "./ModifyCals";
 
 const ClientInfo = (props) => {
@@ -41,7 +42,7 @@ const ClientInfo = (props) => {
             <td>{clientInfo.gender}</td>
             <td>{clientInfo.goal}</td>
             <td>{clientInfo.calories}</td>
-            <td><button type="button" class="btn btn-outline-info">Modify Calories</button></td>
+            <td><Link to= {{pathname:'/modifycals', state:{id:clientInfo.id, name:clientInfo.first_name, goal:clientInfo.goal}}}><button type="button" class="btn btn-outline-info">Modify Calories</button></Link></td>
             <td><button type="button" class="btn btn-outline-info">View/Modify Workout</button></td>
          </tr>
          </tbody>

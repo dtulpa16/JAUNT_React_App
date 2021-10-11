@@ -7,13 +7,10 @@ import {BrowserRouter as Router,
         Link
     } from "react-router-dom"
 
-const jsxElement = <h1>Movie eCommerce Website</h1>
 
 reactDOM.render(
     <Router>
-        <React.StrictMode>
             <App/>
-        </React.StrictMode>
     </Router>,
     document.getElementById('root')
 );

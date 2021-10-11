@@ -19,6 +19,7 @@ import ChooseTrainer from './ChooseTrainer/ChooseTrainer';
 import ClientNutrition from './ClientNutrition/ClientNutrition';
 import DisplayForumPost from './Forums/DisplayForumPost';
 import ReviewCreater from './Forums/ReviewCreater';
+import ModifyCals from './TrainerAccount/ModifyCals';
 
 
 
@@ -71,6 +72,7 @@ render(){
                 <Route path="/traineraccount" render = {props=> <TrainerAccount {...props} user = {user}/>}/>
                 <Route path="/trainerregister" component={TrainerRegister}/>
                 <Route path="/choosetrainer" component={ChooseTrainer}/>
+                <Route path="/modifycals" component={ModifyCals}/>
                 <Route path="/clientnutrition" render = {props=> <ClientNutrition {...props} user = {this.state.user}/>}/>
             </Switch>
         </div>
