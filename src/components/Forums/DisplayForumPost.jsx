@@ -5,8 +5,9 @@ import DisplayReplies from "./DisplayReplies";
 
 
 const DisplayForumPost = (props) => {
-    const [posts, setPosts] = useState(['No Posts'])
-    const [reply, setReply] = useState(['No Replies'])
+    const [posts, setPosts] = useState([])
+    const [reply, setReply] = useState([])
+    const [loadRequest, setLoadRequest] = useState(false)
 
     async function getPosts(product){
         await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`).then(response=>{setPosts(response.data)})
@@ -33,13 +34,13 @@ const DisplayForumPost = (props) => {
     
     return ( 
         <React.Fragment>
-        {posts.map((element)=><div><p><PostCreater creator={element.user}/>{element.body}</p>
+        {posts.map((element)=><div><div><p><PostCreater creator={element.user}/>{element.body}</p></div>
 
-        <form className="reply" type = 'submit' onSubmit = {e => handleSubmit(e,element.id, element.user)} return false>
+        <form className="reply" type = 'submit' onSubmit = {e => handleSubmit(e,element.id, element.user)} >
             <input className="Reply" name = "reply" onChange={handleChange} placeholder="Reply" type='text'></input>
             <button type = "submit">Reply!</button>
             </form>
-        <p><DisplayReplies val = {element.id} reply = {reply}/></p>
+        <p><DisplayReplies val = {element.id} reply = {reply} test = {postReplies()}/></p>
                     </div>)}
 
         </React.Fragment>

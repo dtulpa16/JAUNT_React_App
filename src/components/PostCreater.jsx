@@ -17,6 +17,7 @@ const PostCreater = (props) => {
 
     return ( 
         <div>  
+            {console.log(user)}
         User: {user.username} {user.is_employee && <h6>(Trainer)</h6>}
         </div>
      );

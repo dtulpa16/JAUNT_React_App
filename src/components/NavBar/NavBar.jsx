@@ -68,11 +68,11 @@ const NavBar = ({user}) => {
             <Link to = '/clientregister'>
               <li class="parent" >Register As Client</li>
             </Link>  
+            <Link to = '/trainerregister'>
+              <li class="parent" >Register As Trainer</li>
+            </Link>  
             <Link to = '/Login'>
               <li class="parent">Login</li>
-            </Link>
-            <Link to = '/choosetrainer'>
-              <li class="parent">Trainers</li>
             </Link>
         </React.Fragment>  
         }

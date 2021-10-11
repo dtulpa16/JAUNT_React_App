@@ -4,7 +4,7 @@ import ReviewCreater from "./ReviewCreater";
 
 
 const DisplayReplies = (props) => {
-    const [replies,setReplies] = useState([''])
+    const [replies,setReplies] = useState([])
 
     async function filterReplies(){
         console.log(props.val)
@@ -13,11 +13,11 @@ const DisplayReplies = (props) => {
 
     useEffect(()=>{
         filterReplies()
-    },[replies.length])
+    },[])
 
     return(
-        <div className="replies">
-        Replies:<hr/>{replies.map((element)=><div><p><ReviewCreater user= {element.user}/></p><p>{element.body}<hr></hr></p></div>)}
-        </div>
+        <React.Fragment>
+        Replies:<hr/>{replies.map((element)=><><div><p><ReviewCreater user= {element.user}/></p></div> <div><p>{element.body}<hr></hr></p></div></>)}
+        </React.Fragment>
     )}
 export default DisplayReplies;

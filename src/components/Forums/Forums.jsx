@@ -8,8 +8,8 @@ const Forums = ({user}) => {
     const [newPost, setNewPost] = useState(false)
 
     useEffect(() => {
-        
-    },[post]);
+        setNewPost(true)
+    },[newPost]);
 
     const handleChange = (event)=>{
         setPost(event.target.value);
@@ -18,7 +18,7 @@ const Forums = ({user}) => {
 
     const handleSubmit =(event)=>{
       event.preventDefault()
-      setNewPost(true)
+      setNewPost(false)
         let newPost= {
             user:user.user_id,
             body:post,
@@ -26,6 +26,8 @@ const Forums = ({user}) => {
         setNewPost(false)
           addNewPost(newPost)
       }
+
+      
       async function addNewPost(newPost){
         await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`,newPost);
       }
@@ -39,7 +41,7 @@ const Forums = ({user}) => {
                 <input name= "post" onChange={handleChange} value={post}/>
                 <button type = "submit">Post!</button>
                 </form> 
-                <p><DisplayForumPost posts ={post} user = {user}/></p>
+                <div><p><DisplayForumPost posts ={post} user = {user}/></p></div>
         </React.Fragment>
      );
 }
