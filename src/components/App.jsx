@@ -48,7 +48,8 @@ render(){
             <NavBar className="navbar" user = {user}/>   
             <Switch>
                 <Route
-                path ='/home'
+                path ='/'
+                exact
                 render = {props => {
                     if (!user){
                         return <Redirect to ="/login"/>
