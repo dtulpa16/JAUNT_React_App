@@ -37,28 +37,28 @@ const ChooseTrainer = (props) => {
       }
 
     return( 
-        
-        <React.Fragment>    
-        <table class="rwd-table">
+     
+        <table>
+            <thead>
                     <tr>
-                        <th>Trainer</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Client Reviews</th>
+                        <th scope="col">Trainer</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Client Reviews</th>
                     </tr>
+                    </thead>
         {users.map((element) => element.is_employee &&
                     <><tbody>
-                    <tr class="active-row">
-                        <td data-th="Movie Title">{element.first_name} {element.last_name}</td>
-                        <td data-th="Genre">{element.age}</td> 
-                        <td data-th="Gross">{element.gender}</td>
+                    <tr class="table-info">
+                        <th scope="row">{element.first_name} {element.last_name}</th>
+                        <td>{element.age}</td> 
+                        <td>{element.gender}</td>
                         <td><TrainerReviews trainer = {element.id}/></td>
                         <td><div class="button_slide slide_left" onClick={() => selectTrainer(element.id)}>Select Trainer!</div></td>
                      </tr>
                      </tbody></>)}
              
             </table>
-    </React.Fragment>
   );
 }
 
