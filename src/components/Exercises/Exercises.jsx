@@ -24,8 +24,8 @@ const Excercises = (props) => {
                 <a href="#"><li>Dumbbell Lunges</li></a>
             </ul>
         </div>
-        
         <div class="parent">Leg Press</div>
+        
     </div>
     <div class="wrapper">
         <div class="content">

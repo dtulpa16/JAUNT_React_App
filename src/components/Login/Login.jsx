@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Login.css'
 
 
 
@@ -31,12 +32,25 @@ const Login = () => {
 
   
     return (
+        <div class="wrapper fadeInDown">
+         <div id="formContent">
 
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="username" placeholder="Username" value={username} onChange={(event) => setUserName(event.target.value)} />
-                <input name="password" type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
-                <input type="submit" value="Login" class="btn btn-primary" />
-            </form>
+        <div class="fadeIn first">
+        <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+        </div>
+        <form onSubmit ={handleSubmit}>
+        <input type="text" id="login" class="fadeIn second" name="username" value={username} placeholder="Username" onChange={(event) => setUserName(event.target.value)}/>
+        <input type="text" id="password" class="fadeIn third" name="password"  value={password} placeholder="Password" onChange={(event) => setPassword(event.target.value)}/>
+        <input type="submit" class="fadeIn fourth" value="Log In"/>
+    </form>
+  </div>
+</div>
+
+            // <form onSubmit={handleSubmit}>
+            //     <input type="text" name="username" placeholder="Username" value={username} onChange={(event) => setUserName(event.target.value)} />
+            //     <input name="password" type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
+            //     <input type="submit" value="Login" class="btn btn-primary" />
+            // </form>
 
     )
 }

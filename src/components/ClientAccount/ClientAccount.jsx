@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import Excercises from "../Exercises/Exercises";
 import PushExSub from "../Exercises/PushExSub";
 import PullExSub from "../Exercises/PullExSub";
+import LegSub from "../ExerciseSubs/LegSub";
+import PushSub from "../ExerciseSubs/PushSub";
+import PullSub from "../ExerciseSubs/PullSub";
 
 
 const ClientAccount = (props) => {
@@ -166,7 +169,44 @@ return (
                    </tr>
                    </tbody></>)}
           </table>
-
+          <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Leg Exercise Substitutions
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+         <LegSub/>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Pull Exercise Substitutions
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+         <PullSub/>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      Push Exercise Substitutions
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+         <PushSub/>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
     )
     }
