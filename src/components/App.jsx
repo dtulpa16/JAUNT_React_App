@@ -23,6 +23,7 @@ import ReviewCreater from './Forums/ReviewCreater';
 import ModifyCals from './TrainerAccount/ModifyCals';
 import NewNavBar from './NavBar/NewNavBar';
 import ModifyWorkout from "./TrainerAccount/ModifyWorkout";
+import ReviewTrainer from "./ReviewTrainer/ReviewTrainer";
 
 
 
@@ -77,6 +78,7 @@ render(){
                 <Route path="/modifycals" component={ModifyCals}/>
                 <Route path="/clientnutrition" render = {props=> <ClientNutrition {...props} user = {this.state.user}/>}/>
                 <Route path="/modifyworkout" component ={ModifyWorkout}/>
+                <Route path="/reviewtrainer" render = {props=> <ReviewTrainer {...props} user = {this.state.user}/>}/>
             </Switch>
         </div>
         )
