@@ -43,7 +43,7 @@ const ClientInfo = (props) => {
             <td>{clientInfo.goal}</td>
             <td>{clientInfo.calories}</td>
             <td><Link to= {{pathname:'/modifycals', state:{id:clientInfo.id, name:clientInfo.first_name, goal:clientInfo.goal}}}><button type="button" class="btn btn-outline-info">Modify Calories</button></Link></td>
-            <td><button type="button" class="btn btn-outline-info">View/Modify Workout</button></td>
+            <td><Link to= {{pathname:'/modifyworkout', state:{id:clientInfo.id, name:clientInfo.first_name, goal:clientInfo.goal}}}><button type="button" class="btn btn-outline-info">Modify Workout</button></Link></td>
          </tr>
          </tbody>
  

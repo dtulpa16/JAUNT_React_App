@@ -1,3 +1,4 @@
+import "bootswatch/dist/lux/bootstrap.min.css";
 import {Switch, Route} from 'react-router-dom';
 import { Redirect } from 'react-router';
 import React, {Component} from "react";
@@ -20,7 +21,8 @@ import ClientNutrition from './ClientNutrition/ClientNutrition';
 import DisplayForumPost from './Forums/DisplayForumPost';
 import ReviewCreater from './Forums/ReviewCreater';
 import ModifyCals from './TrainerAccount/ModifyCals';
-
+import NewNavBar from './NavBar/NewNavBar';
+import ModifyWorkout from "./TrainerAccount/ModifyWorkout";
 
 
 
@@ -46,7 +48,7 @@ render(){
     const user = this.state.user;
     return(
         <div className = "App">
-            <NavBar className="navbar" user = {user}/>   
+            <NewNavBar className="navbar" user = {user}/>   
             <Switch>
                 <Route
                 path ='/'
@@ -74,6 +76,7 @@ render(){
                 <Route path="/choosetrainer" component={ChooseTrainer}/>
                 <Route path="/modifycals" component={ModifyCals}/>
                 <Route path="/clientnutrition" render = {props=> <ClientNutrition {...props} user = {this.state.user}/>}/>
+                <Route path="/modifyworkout" component ={ModifyWorkout}/>
             </Switch>
         </div>
         )
