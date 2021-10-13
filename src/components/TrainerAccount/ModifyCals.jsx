@@ -19,7 +19,8 @@ const ModifyCals = (props) => {
           updateCals(newCals)
       }
       async function updateCals(newCals){
-        await axios.put(`http://127.0.0.1:8000/api/auth/${props.location.state.id}/`,newCals);
+        const jwt =localStorage.getItem('token');
+        await axios.put(`http://127.0.0.1:8000/api/auth/${props.location.state.id}/`,newCals, { headers: {Authorization: 'Bearer ' + jwt}});
       }
 
   return ( 

@@ -28,12 +28,6 @@ class ClientRegister extends Component {
             userId:0
          }
     }
-    componentDidMount(){
-        this.getUser()
-    }
-    async getUser(){
-        let response = await axios.get(`http://127.0.0.1:8000/api/auth/1/`).then(response => {console.log(response.data)})
-    }
 
     handleChange = (event) => {
         this.setState({
@@ -70,14 +64,15 @@ class ClientRegister extends Component {
 
     async registerClient(client) {
         try {
-            let response = await axios.post(`http://127.0.0.1:8000/api/auth/register/`, client).then(response => {this.userWorkout(response.data.id, response.data.experience)})
+            const jwt =localStorage.getItem('token');
+            let response = await axios.post(`http://127.0.0.1:8000/api/auth/register/`, client, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {this.userWorkout(response.data.id, response.data.experience)})
             
         } catch (ex) {
             console.log("API call failed");
         }
         
     }
-
+    
     getBmr = () => {
         if(this.state.gender == "male"){
             let clientBmr = parseInt((66 + (6.23 * this.state.weight) + (12.7 * this.state.height) - (6.8 * this.state.age)) * 1.44)
@@ -231,7 +226,8 @@ class ClientRegister extends Component {
     }
 
     async postWorkout(payload) {
-        let response = await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/workout/`, payload)
+        const jwt =localStorage.getItem('token');
+        let response = await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/workout/`, payload, { headers: {Authorization: 'Bearer ' + jwt}})
         this.setState({
             isRegistered:true
         })

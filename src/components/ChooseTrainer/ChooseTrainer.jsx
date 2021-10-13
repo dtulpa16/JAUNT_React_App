@@ -14,7 +14,8 @@ const ChooseTrainer = (props) => {
     },[''])
 
     async function getUsers(){
-        await axios.get(`http://127.0.0.1:8000/api/auth/`).then(response => setUsers(response.data))
+        const jwt =localStorage.getItem('token');
+        await axios.get(`http://127.0.0.1:8000/api/auth/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => setUsers(response.data))
 
     }
 
@@ -27,8 +28,9 @@ const ChooseTrainer = (props) => {
     }
 
     async function selectTrainer(trainer){
+        const jwt =localStorage.getItem('token');
         let payload = {trainer: trainer, client: props.location.state.id}
-        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/assign/`, payload).then(response => {if (response.status === 200){setIsRegistered(true)}})
+        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/assign/`, payload, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {if (response.status === 200){setIsRegistered(true)}})
     }
 
     if (isRegistered == true) {

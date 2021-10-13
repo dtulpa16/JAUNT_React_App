@@ -17,7 +17,8 @@ const ClientAccount = (props) => {
 },[])
 
 async function getCurrentUser(){
-  await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/workout/${props.user.user_id}/`).then(response => {setUserWorkout(response.data)})
+   const jwt =localStorage.getItem('token');
+  await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/workout/${props.user.user_id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {setUserWorkout(response.data)})
 }
 
 return ( 

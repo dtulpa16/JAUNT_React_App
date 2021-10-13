@@ -4,12 +4,12 @@ import axios from "axios";
 import DisplayForumPost from "./DisplayForumPost";
 
 const Forums = ({user}) => {
-    const [post, setPost] = useState([''])
-    const [newPost, setNewPost] = useState(false)
+    const [post, setPost] = useState('')
+    const [renderNewPost, setRenderNewPost] = useState()
 
     useEffect(() => {
-        setNewPost(true)
-    },[newPost]);
+        setRenderNewPost()
+    },[]);
 
     const handleChange = (event)=>{
         setPost(event.target.value);
@@ -18,18 +18,18 @@ const Forums = ({user}) => {
 
     const handleSubmit =(event)=>{
       event.preventDefault()
-      setNewPost(false)
         let newPost= {
             user:user.user_id,
             body:post,
         }
-        setNewPost(false)
           addNewPost(newPost)
       }
 
       
       async function addNewPost(newPost){
-        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`,newPost);
+        const jwt =localStorage.getItem('token');
+        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`,newPost, { headers: {Authorization: 'Bearer ' + jwt}});
+        setRenderNewPost(!renderNewPost)
       }
 
 
@@ -41,7 +41,7 @@ const Forums = ({user}) => {
                 <input name= "post" onChange={handleChange} value={post}/>
                 <button type = "submit">Post!</button>
                 </form> 
-                <div><p><DisplayForumPost posts ={post} user = {user}/></p></div>
+                <div><p><DisplayForumPost posts ={post} user = {user} rerender = {renderNewPost}/></p></div>
         </React.Fragment>
      );
 }

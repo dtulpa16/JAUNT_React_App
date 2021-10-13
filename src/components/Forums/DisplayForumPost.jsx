@@ -7,25 +7,30 @@ import DisplayReplies from "./DisplayReplies";
 const DisplayForumPost = (props) => {
     const [posts, setPosts] = useState([])
     const [reply, setReply] = useState([])
-    const [loadRequest, setLoadRequest] = useState(false)
+    const [renderNewPost, setRenderNewPost] = useState()
 
-    async function getPosts(product){
-        await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`).then(response=>{setPosts(response.data)})
+
+    async function getPosts(){
+        const jwt =localStorage.getItem('token');
+        await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response=>{setPosts(response.data)})
     }
 
     useEffect(()=>{
         getPosts()
-    },[])
+        setRenderNewPost()
+    },[props.rerender])
 
     const handleSubmit = (e,id) =>{
         e.preventDefault()
         let newReply = {comment: id, body: reply, user:props.user.user_id}
         postReplies(newReply)
+        
     }
 
     async function postReplies(newReply){
-        
-        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/forumreply/`,newReply)
+        const jwt =localStorage.getItem('token');
+        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/forumreply/`,newReply, { headers: {Authorization: 'Bearer ' + jwt}})
+        setRenderNewPost(!renderNewPost)
     }
 
     const handleChange= (event) => {
@@ -40,7 +45,7 @@ const DisplayForumPost = (props) => {
             <input className="Reply" name = "reply" onChange={handleChange} placeholder="Reply" type='text'></input>
             <button type = "submit">Reply!</button>
             </form>
-        <p><DisplayReplies val = {element.id} reply = {reply} test = {postReplies()}/></p>
+        <p><DisplayReplies val = {element.id} reply = {reply} rerender={renderNewPost}/></p>
                     </div>)}
 
         </React.Fragment>

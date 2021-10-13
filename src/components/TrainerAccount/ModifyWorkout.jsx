@@ -60,7 +60,8 @@ class ModifyWorkout extends Component {
     }
 
     async getWorkout(){
-        let response = await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/workout/${this.props.location.state.id}/`)
+        const jwt =localStorage.getItem('token');
+        let response = await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/workout/${this.props.location.state.id}/`, { headers: {Authorization: 'Bearer ' + jwt}})
         this.setState({
             clientWorkout:response.data
         })
@@ -115,7 +116,8 @@ class ModifyWorkout extends Component {
 
     async updateWorkout(workout) {
         try {
-            let response = await axios.put(`http://127.0.0.1:8000/api/applicationFunctions/workout/${this.state.clientWorkout[0].id}/`, workout)
+            const jwt =localStorage.getItem('token');
+            let response = await axios.put(`http://127.0.0.1:8000/api/applicationFunctions/workout/${this.state.clientWorkout[0].id}/`, workout, { headers: {Authorization: 'Bearer ' + jwt}})
             
         } catch (ex) {
             console.log("API call failed");

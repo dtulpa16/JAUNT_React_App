@@ -9,7 +9,8 @@ const ClientInfo = (props) => {
   
   
     async function getClientInfo(props){
-      await axios.get(`http://127.0.0.1:8000/api/auth/${props.id}/`).then(response=>{setClientInfo(response.data)})
+        const jwt =localStorage.getItem('token');
+      await axios.get(`http://127.0.0.1:8000/api/auth/${props.id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response=>{setClientInfo(response.data)})
     }
     useEffect(()=>{
         getClientInfo(props)

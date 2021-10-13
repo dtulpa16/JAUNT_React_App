@@ -11,7 +11,8 @@ const TrainerAccount = ({user}) => {
   },[])
 
   async function getClientId(){
-    await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/clients/${user.user_id}/`).then(response=>{setClients(response.data)})
+    const jwt =localStorage.getItem('token');
+    await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/clients/${user.user_id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response=>{setClients(response.data)})
   }
 
 

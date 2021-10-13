@@ -25,11 +25,13 @@ const ReviewTrainer = ({user}) => {
       }
 
     async function createReview(review){
-        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/review/`,review);
+      const jwt =localStorage.getItem('token');
+        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/review/`,review, { headers: {Authorization: 'Bearer ' + jwt}});
       }
 
     async function getTrainer(){
-        await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/trainer/${user.user_id}/`).then(response=>{setTrainer(response.data)});
+      const jwt =localStorage.getItem('token');
+        await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/trainer/${user.user_id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response=>{setTrainer(response.data)});
 
     }
 

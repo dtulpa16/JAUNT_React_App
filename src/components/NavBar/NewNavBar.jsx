@@ -15,7 +15,8 @@ const NewNavBar = ({user}) => {
   },[user])
 
   async function getCurrentUser(){
-    await axios.get(`http://127.0.0.1:8000/api/auth/${user.user_id}/`).then(response => {setCurrentUser(response.data)})
+    const jwt =localStorage.getItem('token');
+    await axios.get(`http://127.0.0.1:8000/api/auth/${user.user_id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {setCurrentUser(response.data)})
   }
 
   return ( 

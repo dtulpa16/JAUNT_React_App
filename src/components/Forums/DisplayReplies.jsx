@@ -8,12 +8,13 @@ const DisplayReplies = (props) => {
 
     async function filterReplies(){
         console.log(props.val)
-        await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/${props.val}/reply/`).then(response => setReplies(response.data))
+        const jwt =localStorage.getItem('token');
+        await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/${props.val}/reply/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => setReplies(response.data))
     }    
 
     useEffect(()=>{
         filterReplies()
-    },[])
+    },[props.rerender])
 
     return(
         <React.Fragment>
