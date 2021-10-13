@@ -247,8 +247,8 @@ class ModifyWorkout extends Component {
             <input onChange={this.handleChange} class="form-control form-control-sm" type="number" name = 'day3ex4sets' id="inputSmall" required value ={this.state.day3ex4sets}/>
 
             <label class="col-form-label col-form-label-sm mt-4" for="inputSmall">Reps</label>
-            <input onChange={this.handleChange} class="form-control form-control-sm" type="number" name = 'day3ex4reps' id="inputSmall" required value ={this.state.day3ex4reps}/>
-            <button type="submit" class="btn btn-outline-info">Submit Workout To Client!</button>
+            <input onChange={this.handleChange} class="form-control form-control-sm" type="number" name = 'day3ex4reps' id="inputSmall" required value ={this.state.day3ex4reps}/><br/>
+            <button type="submit" class="btn btn-outline-dark">Submit Workout To Client!</button>
          </form>
         </div>
         </div>

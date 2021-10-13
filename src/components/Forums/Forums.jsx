@@ -41,7 +41,7 @@ const Forums = ({user}) => {
                 <input name= "post" onChange={handleChange} value={post}/>
                 <button type = "submit">Post!</button>
                 </form> 
-                <div><p><DisplayForumPost posts ={post} user = {user} rerender = {renderNewPost}/></p></div>
+                <div><DisplayForumPost posts ={post} user = {user} rerender = {renderNewPost}/></div>
         </React.Fragment>
      );
 }

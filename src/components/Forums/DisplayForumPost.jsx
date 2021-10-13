@@ -39,13 +39,13 @@ const DisplayForumPost = (props) => {
     
     return ( 
         <React.Fragment>
-        {posts.map((element)=><div><div><p><PostCreater creator={element.user}/>{element.body}</p></div>
+        {posts.map((element)=><div><div><PostCreater creator={element.user}/>{element.body}</div>
 
         <form className="reply" type = 'submit' onSubmit = {e => handleSubmit(e,element.id, element.user)} >
             <input className="Reply" name = "reply" onChange={handleChange} placeholder="Reply" type='text'></input>
             <button type = "submit">Reply!</button>
             </form>
-        <p><DisplayReplies val = {element.id} reply = {reply} rerender={renderNewPost}/></p>
+        <div><DisplayReplies val = {element.id} reply = {reply} rerender={renderNewPost}/></div>
                     </div>)}
 
         </React.Fragment>

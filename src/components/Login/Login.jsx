@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Login.css'
 
 
-
 const Login = () => {
 
     const [username, setUserName] = useState('');
@@ -29,6 +28,7 @@ const Login = () => {
       setPassword('');
       return localStorage;
     }
+    
 
   
     return (
@@ -36,7 +36,7 @@ const Login = () => {
          <div id="formContent">
 
         <div class="fadeIn first">
-        <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/003/285/077/small/alphabet-letter-logo-icon-for-business-and-company-creative-template-vector.jpg" width="30%" height="70%" />
         </div>
         <form onSubmit ={handleSubmit}>
         <input type="text" id="login" class="fadeIn second" name="username" value={username} placeholder="Username" onChange={(event) => setUserName(event.target.value)}/>
