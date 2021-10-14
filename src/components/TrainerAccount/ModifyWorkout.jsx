@@ -120,7 +120,11 @@ class ModifyWorkout extends Component {
             let response = await axios.put(`http://127.0.0.1:8000/api/applicationFunctions/workout/${this.state.clientWorkout[0].id}/`, workout, { headers: {Authorization: 'Bearer ' + jwt}})
             
         } catch (ex) {
-            console.log("API call failed");
+            const refreshtoken = localStorage.getItem('refresh');
+      let refreshResponse = await axios.post(`http://127.0.0.1:8000/api/auth/login/refresh/`, {refresh: refreshtoken})
+      localStorage.setItem('token', refreshResponse.data.access)
+      const jwt =localStorage.getItem('token');
+            let response = await axios.put(`http://127.0.0.1:8000/api/applicationFunctions/workout/${this.state.clientWorkout[0].id}/`, workout, { headers: {Authorization: 'Bearer ' + jwt}})
         }
         
     }

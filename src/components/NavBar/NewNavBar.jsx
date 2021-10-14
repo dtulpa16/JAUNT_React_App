@@ -1,9 +1,11 @@
+import "bootswatch/dist/lux/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import React from "react";
 import Logout from "../Logout";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import './NavBar.css'
+
 
 
 
@@ -15,21 +17,28 @@ const NewNavBar = ({user}) => {
   },[user])
 
   async function getCurrentUser(){
+    try{
     const jwt =localStorage.getItem('token');
     await axios.get(`http://127.0.0.1:8000/api/auth/${user.user_id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {setCurrentUser(response.data)})
+    }catch{
+      const refreshtoken = localStorage.getItem('refresh');
+      let refreshResponse = await axios.post(`http://127.0.0.1:8000/api/auth/login/refresh/`, {refresh: refreshtoken})
+      localStorage.setItem('token', refreshResponse.data.access)
+      const jwt =localStorage.getItem('token');
+    await axios.get(`http://127.0.0.1:8000/api/auth/${user.user_id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {setCurrentUser(response.data)})
+    }
   }
 
   return ( 
-    <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-black">
   <div class="container-fluid">
-    <a class="navbar-brand">Jaunt</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <a class="navbar-brand" >Jaunt</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon me-auto" padding-right="1 rem"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarColor09">
-      <ul class="navbar-nav me-auto">
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav ml-auto ">
       {!currentUser.is_employee && user &&
           <React.Fragment>
         <li class="nav-item">
@@ -48,7 +57,7 @@ const NewNavBar = ({user}) => {
         </li>
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Trainer</a>
-        <div class="dropdown-menu">
+        <div class="dropdown-menu dropdown-menu-left">
           <Link to ='/fromtheexperts'><a class="dropdown-item">My Trainer's Blog</a></Link>
           <Link to ='/reviewtrainer'><a class="dropdown-item">Review Your Trainer</a></Link>
           </div>
@@ -77,14 +86,11 @@ const NewNavBar = ({user}) => {
         }
         {!user &&
           <React.Fragment>
-        <li class="nav-item">
-          <Link to ='/login'><a class="nav-link">Login</a></Link>
-        </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register</a>
           <div class="dropdown-menu">
           <Link to ='/clientregister'><a class="dropdown-item">Register As New Client</a></Link>
-          <Link to ='/Login'><a class="dropdown-item">Register As New Trainer</a></Link>
+          <Link to ='/trainerregister'><a class="dropdown-item">Register As New Trainer</a></Link>
           </div>
         </li>
         </React.Fragment>
@@ -92,7 +98,7 @@ const NewNavBar = ({user}) => {
       </ul>
     </div>
   </div>
-</nav></header>
+</nav>
    );
 }
 

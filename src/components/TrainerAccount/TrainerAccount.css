@@ -1,0 +1,16 @@
+.table-clients{
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.table-align{
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    align-items: center;
+    border: .15rem solid #f6f6f6;
+    justify-content: center;
+    background-color: gray;
+}

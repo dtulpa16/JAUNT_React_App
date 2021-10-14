@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import DisplayForumPost from "./DisplayForumPost";
 
+
 const Forums = ({user}) => {
     const [post, setPost] = useState('')
     const [renderNewPost, setRenderNewPost] = useState()
@@ -27,9 +28,18 @@ const Forums = ({user}) => {
 
       
       async function addNewPost(newPost){
+        try{
         const jwt =localStorage.getItem('token');
         await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`,newPost, { headers: {Authorization: 'Bearer ' + jwt}});
         setRenderNewPost(!renderNewPost)
+        }catch{
+          const refreshtoken = localStorage.getItem('refresh');
+      let refreshResponse = await axios.post(`http://127.0.0.1:8000/api/auth/login/refresh/`, {refresh: refreshtoken})
+          localStorage.setItem('token', refreshResponse.data.access)
+          const jwt =localStorage.getItem('token');
+        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/`,newPost, { headers: {Authorization: 'Bearer ' + jwt}});
+        setRenderNewPost(!renderNewPost)
+        }
       }
 
 

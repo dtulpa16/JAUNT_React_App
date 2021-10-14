@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import Logout from "../Logout";
-import "./NavBar.css";
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 

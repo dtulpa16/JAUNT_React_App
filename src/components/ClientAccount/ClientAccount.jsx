@@ -17,16 +17,24 @@ const ClientAccount = (props) => {
 },[])
 
 async function getCurrentUser(){
-   const jwt =localStorage.getItem('token');
-  await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/workout/${props.user.user_id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {setUserWorkout(response.data)})
+   try{
+      const jwt =localStorage.getItem('token');
+      await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/workout/${props.user.user_id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {setUserWorkout(response.data)})
+   }catch{
+      const refreshtoken = localStorage.getItem('refresh');
+      let refreshResponse = await axios.post(`http://127.0.0.1:8000/api/auth/login/refresh/`, {refresh: refreshtoken})
+      localStorage.setItem('token', refreshResponse.data.access)
+      const jwt =localStorage.getItem('token');
+      await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/workout/${props.user.user_id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {setUserWorkout(response.data)})
+   }
 }
 
 return ( 
   <div>    
     <h2>Day 1 - Legs</h2>
-      <table class="table table-hover">
+      <table class="table">
                <thead>
-                  <tr>
+                  <tr class="table-light">
                       <th scope="col">Notes From Trainer</th>
                       <th scope="col">Exercise </th>
                       <th scope="col">Sets</th>
@@ -35,25 +43,25 @@ return (
                </thead>
     {userWorkout.map((element) =>
                   <><tbody>
-                  <tr class="table-info">
+                  <tr class="table-light">
                       <th scope="row">{element.notes}</th>
                       <th scope="row">{element.day1ex1}</th> 
                       <td>{element.day1ex1sets}</td>
                       <td>{element.day1ex1reps}</td> 
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <td>{}</td>
                       <th scope="row">{element.day1ex2}</th> 
                       <td>{element.day1ex2sets}</td>
                       <td>{element.day1ex2reps}</td>
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <td>{}</td>
                       <th scope="row">{element.day1ex3}</th> 
                       <td>{element.day1ex3sets}</td>
                       <td>{element.day1ex3reps}</td>
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <td>{}</td>
                       <th scope="row">{element.day1ex4}</th> 
                       <td>{element.day1ex4sets}</td>
@@ -62,8 +70,8 @@ return (
                    </tbody></>)}
           </table>
           <h2>Day 2 - Push - Chest/Shoulders/Triceps</h2>
-      <table class="table table-hover">
-                  <tr>
+      <table class="table">
+                  <tr class="table-light">
                       <th>Notes From Trainer</th>
                       <th>Exercise </th>
                       <th>Sets</th>
@@ -71,25 +79,25 @@ return (
                   </tr>
     {userWorkout.map((element) =>
                   <><tbody>
-                  <tr class="table-info">
+                  <tr class="table-light">
                       <th scope="row">{element.notes}</th>
                       <th scope="row">{element.day2ex1}</th> 
                       <td>{element.day2ex1sets}</td>
                       <td>{element.day2ex1reps}</td> 
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <td>{}</td>
                       <th scope="row">{element.day2ex2}</th> 
                       <td>{element.day2ex2sets}</td>
                       <td>{element.day2ex2reps}</td>
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <td>{}</td>
                       <th scope="row">{element.day2ex3}</th> 
                       <td>{element.day2ex3sets}</td>
                       <td>{element.day2ex3reps}</td>
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <td>{}</td>
                       <th scope="row">{element.day2ex4}</th> 
                       <td>{element.day2ex4sets}</td>
@@ -98,8 +106,8 @@ return (
                    </tbody></>)}
           </table>
           <h2>Day 3 - Pull - Back/Biceps</h2>
-      <table class="table table-hover">
-                  <tr>
+      <table class="table">
+                  <tr class="table-light">
                       <th>Notes From Trainer</th>
                       <th>Exercise </th>
                       <th>Sets</th>
@@ -107,25 +115,25 @@ return (
                   </tr>
     {userWorkout.map((element) =>
                   <><tbody>
-                  <tr class="table-info">
+                  <tr class="table-light">
                       <th scope="row">{element.notes}</th>
                       <th scope="row">{element.day3ex1}</th> 
                       <td>{element.day3ex1sets}</td>
                       <td>{element.day3ex1reps}</td> 
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <td>{}</td>
                       <th scope="row">{element.day3ex2}</th> 
                       <td>{element.day3ex2sets}</td>
                       <td>{element.day3ex2reps}</td>
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <td>{}</td>
                       <th scope="row">{element.day3ex3}</th> 
                       <td>{element.day3ex3sets}</td>
                       <td>{element.day3ex3reps}</td>
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <td>{}</td>
                       <th scope="row">{element.day3ex4}</th> 
                       <td>{element.day3ex4sets}</td>
@@ -135,8 +143,8 @@ return (
           </table>
           <h2>Day 4 - Rest Day</h2>
           <h2>Day 5 - Full Body</h2>
-      <table class="table table-hover">
-                  <tr>
+      <table class="table">
+                  <tr class="table-light">
                       <th>Notes From Trainer</th>
                       <th>Exercise </th>
                       <th>Sets</th>
@@ -144,25 +152,25 @@ return (
                   </tr>
     {userWorkout.map((element) =>
                   <><tbody>
-                  <tr class="table-info">
+                  <tr class="table-light">
                       <th scope="row">{element.notes}</th>
                       <th scope="row">{element.day1ex1}</th> 
                       <td>{element.day1ex1sets}</td>
                       <td>{element.day1ex1reps}</td> 
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <th scope="row">{}</th>
                       <th scope="row">{element.day2ex2}</th> 
                       <td>{element.day2ex2sets}</td>
                       <td>{element.day2ex2reps}</td>
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <th scope="row">{}</th>
                       <th scope="row">{element.day3ex2}</th> 
                       <td>{element.day3ex2sets}</td>
                       <td>{element.day3ex2reps}</td>
                    </tr>
-                   <tr class="table-info">
+                   <tr class="table-light">
                       <th>{}</th>
                       <th scope="row">{element.day2ex3}</th> 
                       <td>{element.day2ex3sets}</td>

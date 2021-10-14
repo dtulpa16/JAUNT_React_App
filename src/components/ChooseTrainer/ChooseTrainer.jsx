@@ -14,8 +14,7 @@ const ChooseTrainer = (props) => {
     },[''])
 
     async function getUsers(){
-        const jwt =localStorage.getItem('token');
-        await axios.get(`http://127.0.0.1:8000/api/auth/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => setUsers(response.data))
+        await axios.get(`http://127.0.0.1:8000/api/auth/`).then(response => setUsers(response.data))
 
     }
 
@@ -28,21 +27,21 @@ const ChooseTrainer = (props) => {
     }
 
     async function selectTrainer(trainer){
-        const jwt =localStorage.getItem('token');
         let payload = {trainer: trainer, client: props.location.state.id}
-        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/assign/`, payload, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {if (response.status === 200){setIsRegistered(true)}})
+        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/assign/`, payload)
+        setIsRegistered(true)
     }
 
+    
     if (isRegistered == true) {
         // redirect to home if signed up
-        return <Redirect to = {{ pathname: "/home"}} />;
+        return <Redirect to = {{ pathname: "/login"}} />;
       }
-
     return( 
      
         <table>
             <thead>
-                    <tr>
+                    <tr class="table-light">
                         <th scope="col">Trainer</th>
                         <th scope="col">Age</th>
                         <th scope="col">Gender</th>
@@ -51,7 +50,7 @@ const ChooseTrainer = (props) => {
                     </thead>
         {users.map((element) => element.is_employee &&
                     <><tbody>
-                    <tr class="table-info">
+                    <tr class="table-light">
                         <th scope="row">{element.first_name} {element.last_name}</th>
                         <td>{element.age}</td> 
                         <td>{element.gender}</td>

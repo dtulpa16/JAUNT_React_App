@@ -7,9 +7,18 @@ const DisplayReplies = (props) => {
     const [replies,setReplies] = useState([])
 
     async function filterReplies(){
+        try{
         console.log(props.val)
         const jwt =localStorage.getItem('token');
         await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/${props.val}/reply/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => setReplies(response.data))
+        }catch{
+        console.log(props.val)
+        const refreshtoken = localStorage.getItem('refresh');
+      let refreshResponse = await axios.post(`http://127.0.0.1:8000/api/auth/login/refresh/`, {refresh: refreshtoken})
+        localStorage.setItem('token', refreshResponse.data.access)
+        const jwt =localStorage.getItem('token');
+        await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/forumpost/${props.val}/reply/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => setReplies(response.data))
+        }
     }    
 
     useEffect(()=>{
@@ -18,7 +27,7 @@ const DisplayReplies = (props) => {
 
     return(
         <React.Fragment>
-        Replies:<hr/>{replies.map((element)=><><div><p><ReviewCreater user= {element.user}/></p></div> <div><p>{element.body}<hr></hr></p></div></>)}
+        Replies:<br/>{replies.map((element)=><><div><p><ReviewCreater user= {element.user}/></p></div> <div><p>{element.body}</p></div></>)}
         </React.Fragment>
     )}
 export default DisplayReplies;

@@ -4,6 +4,7 @@ import axios from "axios";
 import CreateWorkout from "../../Hooks/CreateWorkout";
 import {Component, Route, Link } from 'react';
 import { Redirect } from "react-router";
+import './TrainerRegister.css'
 
 
 class TrainerRegister extends Component {
@@ -15,7 +16,7 @@ class TrainerRegister extends Component {
             firstname: '',
             lastname: '',
             isemployee: true,
-            age: 0,
+            age: '',
             goal: 'n/a',
             height: 99,
             weight: 99,
@@ -78,34 +79,33 @@ class TrainerRegister extends Component {
 render(){
     if (this.state.isRegistered) {
         // redirect to home if signed up
-        return <Redirect to = {{ pathname: "/home",state:{ id :this.state.userId} }} />;
+        return <Redirect to = {{ pathname: "/login",state:{ id :this.state.userId} }} />;
       }
   return ( 
-        <React.Fragment>
+    <div class="trainerregwrapper regfadeInDown">
+    <div id="trainerregisterContent">
+
+   <div class="regfadeIn first">
+   <img src="https://static.vecteezy.com/system/resources/thumbnails/003/285/077/small/alphabet-letter-logo-icon-for-business-and-company-creative-template-vector.jpg" width="30%" height="70%" />
+   </div>
             <form className= "register" onSubmit={(event) => this.handleSubmit (event)}>
-                <label>First Name</label>
-                <input name= "firstname" onChange={this.handleChange} value={this.state.firstname}/>
-                <label>Last Name</label>
-                <input name= "lastname" onChange={this.handleChange} value={this.state.lastname}/>
-                <label>Email</label>
-                <input name= "email"type = 'email' onChange={this.handleChange} value={this.state.email}/>
-                <label>Username</label>
-                <input name= "username" onChange={this.handleChange} value={this.state.username}/>
-                <label>Password</label>
-                <input name= "password" onChange={this.handleChange} value={this.state.password}/>
-                <label>Re-enter Password</label>
-                <input name= "password2" onChange={this.handleChange} value={this.state.password2}/>
-                <label>Age</label>
-                <input name= "age" type = 'number' onChange={this.handleChange} value={this.state.age}/>
-                <label>Gender</label>
+                <input id ='trainerreginput' placeholder="First Name" type = 'text' name= "firstname" onChange={this.handleChange} value={this.state.firstname}/>
+                <input id ='trainerreginput' placeholder="Last Name" type = 'text' name= "lastname" onChange={this.handleChange} value={this.state.lastname}/>
+                <input id ='trainerreginput' placeholder="Email" name= "email"type = 'email' onChange={this.handleChange} value={this.state.email}/>
+                <input id ='trainerreginput' type='text'name= "username" placeholder="Username" onChange={this.handleChange} value={this.state.username}/>
+                <input id ='trainerreginput' type = "password"placeholder="Password" name= "password" onChange={this.handleChange} value={this.state.password}/>
+                <input id ='trainerreginput' type = "password" name= "password2" placeholder="Re-Enter Password"onChange={this.handleChange} value={this.state.password2}/>
+                <input id ='trainerreginput' name= "age" type = 'number' placeholder="Age"onChange={this.handleChange} value={this.state.age}/>
+                <br/><label id='label'>Gender</label>
                 <select id="gender" name = "gender" onChange={this.handleOnChange}>
                     <option> </option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
-                </select>
-                <button type = "submit">Register!</button>
+                </select><br/>
+                <input type = "submit" class="fadeIn fourth" value="Register"/>
             </form> 
-        </React.Fragment>
+            </div>
+    </div>
    );
   }
 }

@@ -1,4 +1,6 @@
 import "bootswatch/dist/lux/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {Switch, Route} from 'react-router-dom';
 import { Redirect } from 'react-router';
 import React, {Component} from "react";
@@ -34,14 +36,15 @@ class App extends Component{
 
 //Establishes what methods/functions will be ran when the page is launched
      componentDidMount() {
-        const jwt = localStorage.getItem('token');
+        let jwt = localStorage.getItem('token');
+        let refresh = localStorage.getItem('refresh');
         try{
             const user = jwtDecode(jwt);
             this.setState({user});
         }catch{
-
+            
         }
-    }
+        }
 
     
 // Establish url enpoints to get to a certain page vvv

@@ -22,10 +22,9 @@ const Login = () => {
       let response = await axios.post(`http://127.0.0.1:8000/api/auth/login/`, payload)
       console.log(response.data)
       localStorage.setItem('token', response.data.access);
+      localStorage.setItem('refresh', response.data.refresh);
+      console.log(`refresh token`, response.data.refresh)
       window.location = '/home';
-      //resets form
-      setUserName('');
-      setPassword('');
       return localStorage;
     }
     
@@ -40,7 +39,7 @@ const Login = () => {
         </div>
         <form onSubmit ={handleSubmit}>
         <input type="text" id="login" class="fadeIn second" name="username" value={username} placeholder="Username" onChange={(event) => setUserName(event.target.value)}/>
-        <input type="text" id="password" class="fadeIn third" name="password"  value={password} placeholder="Password" onChange={(event) => setPassword(event.target.value)}/>
+        <input type="password" id="password" class="fadeIn third" name="password"  value={password} placeholder="Password" onChange={(event) => setPassword(event.target.value)}/>
         <input type="submit" class="fadeIn fourth" value="Log In"/>
     </form>
   </div>

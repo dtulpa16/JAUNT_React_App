@@ -4,6 +4,7 @@ import axios from "axios";
 import CreateWorkout from "../../Hooks/CreateWorkout";
 import {Component, Route, Link } from 'react';
 import { Redirect } from "react-router";
+import './ClientRegister.css'
 
 
 class ClientRegister extends Component {
@@ -15,15 +16,15 @@ class ClientRegister extends Component {
             firstname: '',
             lastname: '',
             isemployee: false,
-            age: 0,
+            age: '',
             goal: '',
-            height: 0,
-            weight: 0,
+            height: '',
+            weight: '',
             gender: '',
-            experience: 0,
+            experience: '',
             password: '',
             password2: '',
-            calories: 0,
+            calories: '',
             isRegistered: false,
             userId:0
          }
@@ -38,6 +39,12 @@ class ClientRegister extends Component {
         this.setState({
             gender:event.target.value
         });
+    }
+    handleChangeOne = (event) =>{
+        this.setState({
+            experience: parseInt(event.target.value)
+        })
+        
     }
 
     handleSubmit =(event)=>{
@@ -65,7 +72,7 @@ class ClientRegister extends Component {
     async registerClient(client) {
         try {
             const jwt =localStorage.getItem('token');
-            let response = await axios.post(`http://127.0.0.1:8000/api/auth/register/`, client, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {this.userWorkout(response.data.id, response.data.experience)})
+            let response = await axios.post(`http://127.0.0.1:8000/api/auth/register/`, client).then(response => {this.userWorkout(response.data.id, response.data.experience)})
             
         } catch (ex) {
             console.log("API call failed");
@@ -226,8 +233,7 @@ class ClientRegister extends Component {
     }
 
     async postWorkout(payload) {
-        const jwt =localStorage.getItem('token');
-        let response = await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/workout/`, payload, { headers: {Authorization: 'Bearer ' + jwt}})
+        let response = await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/workout/`, payload)
         this.setState({
             isRegistered:true
         })
@@ -247,48 +253,46 @@ render(){
         return <Redirect to = {{ pathname: "/choosetrainer",state:{ id :this.state.userId} }} />;
       }
   return ( 
-        <React.Fragment>
+    <div class="regwrapper regfadeInDown">
+    <div id="registerContent">
+
+   <div class="regfadeIn first">
+   <img src="https://static.vecteezy.com/system/resources/thumbnails/003/285/077/small/alphabet-letter-logo-icon-for-business-and-company-creative-template-vector.jpg" width="30%" height="70%" />
+   </div>
             <form className= "register" onSubmit={(event) => this.handleSubmit (event)}>
-                <label>First Name</label>
-                <input name= "firstname" onChange={this.handleChange} value={this.state.firstname}/>
-                <label>Last Name</label>
-                <input name= "lastname" onChange={this.handleChange} value={this.state.lastname}/>
-                <label>Email</label>
-                <input name= "email"type = 'email' onChange={this.handleChange} value={this.state.email}/>
-                <label>Username</label>
-                <input name= "username" onChange={this.handleChange} value={this.state.username}/>
-                <label>Password</label>
-                <input name= "password" onChange={this.handleChange} value={this.state.password}/>
-                <label>Re-enter Password</label>
-                <input name= "password2" onChange={this.handleChange} value={this.state.password2}/>
-                <label>Age</label>
-                <input name= "age" type = 'number' onChange={this.handleChange} value={this.state.age}/>
-                <label>Height (In Inches)</label>
-                <input name= "height" type = 'number' onChange={this.handleChange} value={this.state.height}/>
-                <label>Weight (In Pounds)</label>
-                <input name= "weight" type = 'number' onChange={this.handleChange} value={this.state.weight}/>
-                <label>Gender</label>
-                <select id="gender" name = "gender" onChange={this.handleOnChange}>
+
+                <input id ='reginput'type = 'text' name= "firstname" onChange={this.handleChange} placeholder="First Name" value={this.state.firstname}/>
+                <input id ='reginput' type = 'text' name= "lastname" onChange={this.handleChange} placeholder="Last Name" value={this.state.lastname}/>
+                <input id ='reginput' name= "email" type = 'email' type ='text' onChange={this.handleChange} placeholder="Email" value={this.state.email}/>
+                <input id ='reginput'name= "username" type = 'text' onChange={this.handleChange} placeholder="Username" value={this.state.username}/>
+                <input id ='reginput'name= "password" type = "password" placeholder="Password"onChange={this.handleChange} value={this.state.password}/>
+                <input  id ='reginput'name= "password2" type = "password" placeholder="Re-Enter Password" onChange={this.handleChange} value={this.state.password2}/>
+                <input id ='reginput' name= "age" type = 'number' placeholder="Age" onChange={this.handleChange} value={this.state.age}/>
+                <input id ='reginput'name= "height" type = 'number' placeholder="Height In Inches" onChange={this.handleChange} value={this.state.height}/>
+                <input id ='reginput'name= "weight" type = 'number' placeholder="Weight In Pounds" onChange={this.handleChange} value={this.state.weight}/>
+                <br/><label id='label'>Gender</label>
+                <select id ='reginput' type = 'text' id="gender" name = "gender" onChange={this.handleOnChange}>
                     <option> </option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
-                </select>
-                <label>Experience Level</label>
-                <select id="experience" name="experience" type = "number"  onChange={this.handleChange}>
+                </select><br/>
+                <label id='label'>Experience Level</label>
+                <select id="experience" name="experience" type = "number"  onChange={this.handleChangeOne}>
                     <option> </option>
-                    <option value="1">Beginner</option>
+                    <option value='1'>Beginner</option>
                     <option value="2">Intermediate</option>
                     <option value="3">Expert</option>
-                </select>
-                <label>Fitness Goal</label>
-                <select id="goal" name="goal"  onChange={this.handleChange}>
+                </select><br/>
+                <label id='label'>Fitness Goal</label>
+                <select type= 'text'id="goal" name="goal"  onChange={this.handleChange}>
                     <option> </option>
                     <option value="weight loss">Weight Loss</option>
                     <option value="weight gain">Weight Gain</option>
-                </select>
-                <button type = "submit">Register!</button>
+                </select><br/>
+                <input type = "submit" class="fadeIn fourth" value="Register"/>
             </form> 
-        </React.Fragment>
+            </div>
+    </div>
    );
   }
 }

@@ -25,14 +25,29 @@ const ReviewTrainer = ({user}) => {
       }
 
     async function createReview(review){
+      try{
       const jwt =localStorage.getItem('token');
         await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/review/`,review, { headers: {Authorization: 'Bearer ' + jwt}});
+        }catch{
+          const refreshtoken = localStorage.getItem('refresh');
+      let refreshResponse = await axios.post(`http://127.0.0.1:8000/api/auth/login/refresh/`, {refresh: refreshtoken})
+          localStorage.setItem('token', refreshResponse.data.access)
+          const jwt =localStorage.getItem('token');
+        await axios.post(`http://127.0.0.1:8000/api/applicationFunctions/review/`,review, { headers: {Authorization: 'Bearer ' + jwt}});
+        }
       }
 
     async function getTrainer(){
+      try{
       const jwt =localStorage.getItem('token');
         await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/trainer/${user.user_id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response=>{setTrainer(response.data)});
-
+      }catch{
+        let refresh = localStorage.getItem('refresh');
+      let refreshResponse = await axios.post(`http://127.0.0.1:8000/api/auth/login/refresh/`, refresh)
+      localStorage.setItem('token', refreshResponse.data.access)
+      const jwt =localStorage.getItem('token');
+        await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/trainer/${user.user_id}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response=>{setTrainer(response.data)});
+      }
     }
 
 

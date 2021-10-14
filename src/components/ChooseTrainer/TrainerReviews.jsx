@@ -11,8 +11,7 @@ const TrainerReviews = (props) => {
     },[])
 
     async function getReviews(){
-      const jwt =localStorage.getItem('token');
-        await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/review/${props.trainer}/`, { headers: {Authorization: 'Bearer ' + jwt}}).then(response => {setReviews(response.data)})
+        await axios.get(`http://127.0.0.1:8000/api/applicationFunctions/review/${props.trainer}/`).then(response => {setReviews(response.data)})
     }
   return ( 
     <div>

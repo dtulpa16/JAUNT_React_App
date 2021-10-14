@@ -1,0 +1,9 @@
+.navbar-brand{
+    font-size: 2rem;
+    padding-left: .01rem;
+    letter-spacing: -.03rem;
+}
+.dropdown-menu {
+    left: auto;
+    right: 0;
+  }
