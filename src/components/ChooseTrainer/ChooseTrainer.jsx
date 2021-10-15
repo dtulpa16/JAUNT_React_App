@@ -39,13 +39,14 @@ const ChooseTrainer = (props) => {
       }
     return( 
      
-        <table>
+        <table className='trainer-table'>
             <thead>
-                    <tr class="table-light">
+                    <tr class="trainer-table-contents">
                         <th scope="col">Trainer</th>
                         <th scope="col">Age</th>
                         <th scope="col">Gender</th>
                         <th scope="col">Client Reviews</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
         {users.map((element) => element.is_employee &&
