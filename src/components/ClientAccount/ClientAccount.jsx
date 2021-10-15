@@ -7,6 +7,7 @@ import PullExSub from "../Exercises/PullExSub";
 import LegSub from "../ExerciseSubs/LegSub";
 import PushSub from "../ExerciseSubs/PushSub";
 import PullSub from "../ExerciseSubs/PullSub";
+import './ClientAccount.css'
 
 
 const ClientAccount = (props) => {
@@ -30,11 +31,13 @@ async function getCurrentUser(){
 }
 
 return ( 
-  <div>    
-    <h2>Day 1 - Legs</h2>
-      <table class="table">
-               <thead>
-                  <tr class="table-light">
+  <div class="container">  
+  <div class="row" >
+      <div class="col-md-6">
+      <h6 className="DOW">Day 1 - Legs</h6>
+      <table className="legs-table">
+         <thead>
+                  <tr class="legs-table-contents">
                       <th scope="col">Notes From Trainer</th>
                       <th scope="col">Exercise </th>
                       <th scope="col">Sets</th>
@@ -43,25 +46,25 @@ return (
                </thead>
     {userWorkout.map((element) =>
                   <><tbody>
-                  <tr class="table-light">
+                  <tr >
                       <th scope="row">{element.notes}</th>
                       <th scope="row">{element.day1ex1}</th> 
                       <td>{element.day1ex1sets}</td>
                       <td>{element.day1ex1reps}</td> 
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <td>{}</td>
                       <th scope="row">{element.day1ex2}</th> 
                       <td>{element.day1ex2sets}</td>
                       <td>{element.day1ex2reps}</td>
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <td>{}</td>
                       <th scope="row">{element.day1ex3}</th> 
                       <td>{element.day1ex3sets}</td>
                       <td>{element.day1ex3reps}</td>
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <td>{}</td>
                       <th scope="row">{element.day1ex4}</th> 
                       <td>{element.day1ex4sets}</td>
@@ -69,9 +72,11 @@ return (
                    </tr>
                    </tbody></>)}
           </table>
-          <h2>Day 2 - Push - Chest/Shoulders/Triceps</h2>
-      <table class="table">
-                  <tr class="table-light">
+          
+          
+      <h6 className="DOW">Day 2 - Push - Chest/Shoulders/Triceps</h6>
+      <table className="push-table">
+                  <tr >
                       <th>Notes From Trainer</th>
                       <th>Exercise </th>
                       <th>Sets</th>
@@ -79,25 +84,25 @@ return (
                   </tr>
     {userWorkout.map((element) =>
                   <><tbody>
-                  <tr class="table-light">
+                  <tr >
                       <th scope="row">{element.notes}</th>
                       <th scope="row">{element.day2ex1}</th> 
                       <td>{element.day2ex1sets}</td>
                       <td>{element.day2ex1reps}</td> 
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <td>{}</td>
                       <th scope="row">{element.day2ex2}</th> 
                       <td>{element.day2ex2sets}</td>
                       <td>{element.day2ex2reps}</td>
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <td>{}</td>
                       <th scope="row">{element.day2ex3}</th> 
                       <td>{element.day2ex3sets}</td>
                       <td>{element.day2ex3reps}</td>
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <td>{}</td>
                       <th scope="row">{element.day2ex4}</th> 
                       <td>{element.day2ex4sets}</td>
@@ -105,9 +110,10 @@ return (
                    </tr>
                    </tbody></>)}
           </table>
-          <h2>Day 3 - Pull - Back/Biceps</h2>
-      <table class="table">
-                  <tr class="table-light">
+
+          <h6 className="DOW">Day 3 - Pull - Back/Biceps</h6>
+      <table className="pull-table">
+                  <tr >
                       <th>Notes From Trainer</th>
                       <th>Exercise </th>
                       <th>Sets</th>
@@ -115,25 +121,25 @@ return (
                   </tr>
     {userWorkout.map((element) =>
                   <><tbody>
-                  <tr class="table-light">
+                  <tr >
                       <th scope="row">{element.notes}</th>
                       <th scope="row">{element.day3ex1}</th> 
                       <td>{element.day3ex1sets}</td>
                       <td>{element.day3ex1reps}</td> 
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <td>{}</td>
                       <th scope="row">{element.day3ex2}</th> 
                       <td>{element.day3ex2sets}</td>
                       <td>{element.day3ex2reps}</td>
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <td>{}</td>
                       <th scope="row">{element.day3ex3}</th> 
                       <td>{element.day3ex3sets}</td>
                       <td>{element.day3ex3reps}</td>
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <td>{}</td>
                       <th scope="row">{element.day3ex4}</th> 
                       <td>{element.day3ex4sets}</td>
@@ -141,10 +147,10 @@ return (
                    </tr>
                    </tbody></>)}
           </table>
-          <h2>Day 4 - Rest Day</h2>
-          <h2>Day 5 - Full Body</h2>
-      <table class="table">
-                  <tr class="table-light">
+          <h6 className="DOW">Day 4 - Rest Day</h6>
+          <h6 className="DOW">Day 5 - Full Body</h6>
+      <table className="fb-table">
+                  <tr >
                       <th>Notes From Trainer</th>
                       <th>Exercise </th>
                       <th>Sets</th>
@@ -152,32 +158,36 @@ return (
                   </tr>
     {userWorkout.map((element) =>
                   <><tbody>
-                  <tr class="table-light">
+                  <tr >
                       <th scope="row">{element.notes}</th>
                       <th scope="row">{element.day1ex1}</th> 
                       <td>{element.day1ex1sets}</td>
                       <td>{element.day1ex1reps}</td> 
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <th scope="row">{}</th>
                       <th scope="row">{element.day2ex2}</th> 
                       <td>{element.day2ex2sets}</td>
                       <td>{element.day2ex2reps}</td>
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <th scope="row">{}</th>
                       <th scope="row">{element.day3ex2}</th> 
                       <td>{element.day3ex2sets}</td>
                       <td>{element.day3ex2reps}</td>
                    </tr>
-                   <tr class="table-light">
+                   <tr >
                       <th>{}</th>
                       <th scope="row">{element.day2ex3}</th> 
                       <td>{element.day2ex3sets}</td>
                       <td>{element.day2ex3reps}</td>
                    </tr>
                    </tbody></>)}
-          </table>
+          </table></div> 
+
+          <div class="col-md-6">
+             <h6 className="subtext">Workout Substitutions</h6>
+             <div className="subs">
           <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -216,7 +226,8 @@ return (
     </div>
   </div>
 </div>
-    </div>
+</div></div>
+    </div></div>
     )
     }
 

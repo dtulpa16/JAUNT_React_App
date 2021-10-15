@@ -153,14 +153,13 @@ class ModifyWorkout extends Component {
             <div class="container">
             <div class="workout-middle-wrapper workoutfadeInDown">
             <div id="workoutContent">
-            <img src="https://thumbs.dreamstime.com/b/dumbbell-icon-isolated-black-background-simple-vector-dumbbell-icon-isolated-black-background-156664028.jpg" width="7%" height="15%" />
+            <img src="https://thumbs.dreamstime.com/b/dumbbell-icon-isolated-black-background-simple-vector-dumbbell-icon-isolated-black-background-156664028.jpg" width="5%" height="10%" />
 
             <div class="workoutfadeIn first">
-            <h4>{this.props.location.state.name}'s current goal: {this.props.location.state.goal}</h4>
+            <h5>{this.props.location.state.name}'s current goal: {this.props.location.state.goal}</h5>
             </div>
 
             <form className= "calories" onSubmit={(event) => this.handleSubmit (event)}>
-            <input onChange={this.handleChange} type="text" name = 'notes' placeholder="Add a Note" required value ={this.state.notes}/>
             <div class="row">
             <div class="col-md-4">
             <label id="workoutlabel">Leg day</label>
@@ -242,6 +241,7 @@ class ModifyWorkout extends Component {
             <input onChange={this.handleChange}  type="number" name = 'day3ex4reps' placeholder="Reps" required value ={this.state.day3ex4reps}/><br/>
             </div>
          </div>
+        <input onChange={this.handleChange} type="text" name = 'notes' placeholder="Add a Note" required value ={this.state.notes}/>
             <input  type = "submit" class="workoutfadeIn fourth" value="Submit Workout"/>
          </form>   
          </div>

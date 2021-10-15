@@ -79,6 +79,8 @@ class TrainerRegister extends Component {
 render(){
     if (this.state.isRegistered) {
         // redirect to home if signed up
+        alert("You have successfully registered! Welcome to the Jaunt trainer family! You may now login")
+
         return <Redirect to = {{ pathname: "/login",state:{ id :this.state.userId} }} />;
       }
   return ( 

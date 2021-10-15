@@ -1,10 +1,15 @@
+import './Sub.css'
+
+
 const PushSub = () => {
     return(
-        <table class="table">
-  <thead>
-    <tr>
+      <table class="sub-table">
+      <thead>
+      <tr className="sub-table-contents">
       <th scope="col">Exercise</th>
       <th scope="col">Substitutions</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>

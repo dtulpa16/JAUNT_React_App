@@ -34,8 +34,13 @@ const ChooseTrainer = (props) => {
 
     
     if (isRegistered == true) {
-        // redirect to home if signed up
-        return <Redirect to = {{ pathname: "/login"}} />;
+        alert("You have successfully registered! Welcome to the Jaunt family! You may now login")
+        return (
+
+            
+            <Redirect to = {{ pathname: "/login"}} />
+          
+);
       }
     return( 
      

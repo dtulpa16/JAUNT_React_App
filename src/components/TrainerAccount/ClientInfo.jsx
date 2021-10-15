@@ -28,11 +28,11 @@ const ClientInfo = (props) => {
   
     return ( 
 
-        <table id="table-clients">
+        <table className="table-clients">
         <thead>
-        <tr class="table-light">
-            <th scope="col">Client</th>
-            <th >Email</th>
+        <tr className="table-client-contents">
+            <th>Client</th>
+            <th>Email</th>
             <th>Age</th>
             <th>Height</th>
             <th>Weight</th>
@@ -44,17 +44,18 @@ const ClientInfo = (props) => {
         </tr>
         </thead>
         <tbody>
-        <tr class="table-light">
-            <th scope="row">{clientInfo.first_name} {clientInfo.last_name}</th>
-            <td scope="row">{clientInfo.email}</td> 
-            <td>{clientInfo.age}</td> 
-            <td>{clientInfo.height}in.</td> 
-            <td>{clientInfo.weight}lbs</td> 
-            <td>{clientInfo.gender}</td>
-            <td>{clientInfo.goal}</td>
-            <td>{clientInfo.calories}</td>
-            <td><Link to= {{pathname:'/modifycals', state:{id:clientInfo.id, name:clientInfo.first_name, goal:clientInfo.goal}}}><button type="button" class="btn btn-outline-dark">Modify Calories</button></Link></td>
-            <td><Link to= {{pathname:'/modifyworkout', state:{id:clientInfo.id, name:clientInfo.first_name, goal:clientInfo.goal}}}><button type="button" class="btn btn-outline-dark">Customize Workout</button></Link></td>
+        <tr className="table-light">
+            <td>{clientInfo.first_name} {clientInfo.last_name}</td>
+            <td>{clientInfo.email}</td> 
+            
+            <td className="cont">{clientInfo.age}</td> 
+            <td className="cont">{clientInfo.height}in.</td> 
+            <td className="cont">{clientInfo.weight}lbs</td> 
+            <td className="cont">{clientInfo.gender}</td>
+            <td className="cont">{clientInfo.goal}</td>
+            <td className="cont">{clientInfo.calories}</td>
+            <td className="cont"><Link to= {{pathname:'/modifycals', state:{id:clientInfo.id, name:clientInfo.first_name, goal:clientInfo.goal}}}><button type="button" class="btn btn-outline-dark">Modify Calories</button></Link></td>
+            <td className="cont"><Link to= {{pathname:'/modifyworkout', state:{id:clientInfo.id, name:clientInfo.first_name, goal:clientInfo.goal}}}><button type="button" class="btn btn-outline-dark">Customize Workout</button></Link></td>
          </tr>
          </tbody>
 </table>

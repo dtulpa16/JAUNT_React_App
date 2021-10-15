@@ -1,12 +1,15 @@
 import { render } from "@testing-library/react"
+import './Sub.css'
 
 const LegSub = () => {
     return(
-        <table class="table">
+        <table class="sub-table">
   <thead>
-    <tr>
+    <tr className="sub-table-contents">
       <th scope="col">Exercise</th>
       <th scope="col">Substitutions</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
