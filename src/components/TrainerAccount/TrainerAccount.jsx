@@ -29,7 +29,7 @@ const TrainerAccount = ({user}) => {
     <React.Fragment>
 
          
-        <div className='table-align'>{clients.map((element)=><ClientInfo id = {element.client}/>)}</div>
+        <div id='trainer-wrapper'><div id = 'clientContent'>{clients.map((element)=><ClientInfo id = {element.client}/>)}</div></div>
 
     </React.Fragment>
    );

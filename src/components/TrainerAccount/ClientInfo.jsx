@@ -28,7 +28,7 @@ const ClientInfo = (props) => {
   
     return ( 
 
-        <table className="table-clients">
+        <table id="table-clients">
         <thead>
         <tr class="table-light">
             <th scope="col">Client</th>
@@ -56,7 +56,7 @@ const ClientInfo = (props) => {
             <td><Link to= {{pathname:'/modifycals', state:{id:clientInfo.id, name:clientInfo.first_name, goal:clientInfo.goal}}}><button type="button" class="btn btn-outline-dark">Modify Calories</button></Link></td>
             <td><Link to= {{pathname:'/modifyworkout', state:{id:clientInfo.id, name:clientInfo.first_name, goal:clientInfo.goal}}}><button type="button" class="btn btn-outline-dark">Customize Workout</button></Link></td>
          </tr>
-         </tbody><br/>
+         </tbody>
 </table>
 
      );

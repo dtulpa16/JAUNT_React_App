@@ -261,30 +261,30 @@ render(){
    </div>
             <form className= "register" onSubmit={(event) => this.handleSubmit (event)}>
 
-                <input id ='reginput'type = 'text' name= "firstname" onChange={this.handleChange} placeholder="First Name" value={this.state.firstname}/>
-                <input id ='reginput' type = 'text' name= "lastname" onChange={this.handleChange} placeholder="Last Name" value={this.state.lastname}/>
-                <input id ='reginput' name= "email" type = 'email' type ='text' onChange={this.handleChange} placeholder="Email" value={this.state.email}/>
-                <input id ='reginput'name= "username" type = 'text' onChange={this.handleChange} placeholder="Username" value={this.state.username}/>
-                <input id ='reginput'name= "password" type = "password" placeholder="Password"onChange={this.handleChange} value={this.state.password}/>
-                <input  id ='reginput'name= "password2" type = "password" placeholder="Re-Enter Password" onChange={this.handleChange} value={this.state.password2}/>
-                <input id ='reginput' name= "age" type = 'number' placeholder="Age" onChange={this.handleChange} value={this.state.age}/>
-                <input id ='reginput'name= "height" type = 'number' placeholder="Height In Inches" onChange={this.handleChange} value={this.state.height}/>
-                <input id ='reginput'name= "weight" type = 'number' placeholder="Weight In Pounds" onChange={this.handleChange} value={this.state.weight}/>
+                <input id ='reginput'type = 'text' name= "firstname" onChange={this.handleChange} placeholder="First Name" required value={this.state.firstname}/>
+                <input id ='reginput' type = 'text' name= "lastname" onChange={this.handleChange} placeholder="Last Name" required value={this.state.lastname}/>
+                <input id ='reginput' name= "email" type = 'email' type ='text' onChange={this.handleChange} placeholder="Email" required value={this.state.email}/>
+                <input id ='reginput'name= "username" type = 'text' onChange={this.handleChange} placeholder="Username" required value={this.state.username}/>
+                <input id ='reginput'name= "password" type = "password" placeholder="Password"onChange={this.handleChange} required value={this.state.password}/>
+                <input  id ='reginput'name= "password2" type = "password" placeholder="Re-Enter Password" required onChange={this.handleChange} value={this.state.password2}/>
+                <input id ='reginput' name= "age" type = 'number' placeholder="Age" onChange={this.handleChange} required value={this.state.age}/>
+                <input id ='reginput'name= "height" type = 'number' placeholder="Height In Inches" required onChange={this.handleChange} value={this.state.height}/>
+                <input id ='reginput'name= "weight" type = 'number' placeholder="Weight In Pounds" required onChange={this.handleChange} value={this.state.weight}/>
                 <br/><label id='label'>Gender</label>
-                <select id ='reginput' type = 'text' id="gender" name = "gender" onChange={this.handleOnChange}>
+                <select id ='reginput' type = 'text' id="gender" name = "gender" required onChange={this.handleOnChange}>
                     <option> </option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select><br/>
                 <label id='label'>Experience Level</label>
-                <select id="experience" name="experience" type = "number"  onChange={this.handleChangeOne}>
+                <select id="experience" name="experience" type = "number" required  onChange={this.handleChangeOne}>
                     <option> </option>
                     <option value='1'>Beginner</option>
                     <option value="2">Intermediate</option>
                     <option value="3">Expert</option>
                 </select><br/>
                 <label id='label'>Fitness Goal</label>
-                <select type= 'text'id="goal" name="goal"  onChange={this.handleChange}>
+                <select type= 'text'id="goal" name="goal" required  onChange={this.handleChange}>
                     <option> </option>
                     <option value="weight loss">Weight Loss</option>
                     <option value="weight gain">Weight Gain</option>

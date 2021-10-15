@@ -3,6 +3,7 @@
     align-items: center;
     flex-direction: column; 
     justify-content: center;
+    position: relative;
     width: 100%;
     height: 100%;
     min-height: 100%;
@@ -20,11 +21,11 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(0%,70%);
 } */
-#label{
+.regwrapper label{
     background-color: rgb(189, 189, 189);
     border-radius: 5%
 }
-#registerContent {
+.regwrapper #registerContent {
     -webkit-border-radius: 1px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: rgb(0, 0, 0);
@@ -53,11 +54,11 @@
   
   /* TABS */
   
-  .h2.inactive {
+  .regwrapper .h2.inactive {
     color: #868686;
   }
   
-  .h2.active {
+  .regwrapper .h2.active {
     color: #0d0d0d;
     border-bottom: 2px solid #aaaaaa;
   }
@@ -66,7 +67,7 @@
   
   /* FORM TYPOGRAPHY*/
   
-  #input[type=button], input[type=submit], input[type=reset]  {
+  .regwrapper input[type=button], .regwrapper input[type=submit],.regwrapper input[type=reset]  {
     background-color: #e2e2e2;
     border: none;
     color: rgb(0, 0, 0);
@@ -88,11 +89,11 @@
     transition: all 0.3s ease-in-out;
   }
   
-  #input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  .regwrapper input[type=button]:hover,.regwrapper input[type=submit]:hover,.regwrapper input[type=reset]:hover  {
     background-color: #ffffff;
   }
   
-  #input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+  .regwrapper input[type=button]:active,.regwrapper input[type=submit]:active,.regwrapper input[type=reset]:active  {
     -moz-transform: scale(0.95);
     -webkit-transform: scale(0.95);
     -o-transform: scale(0.95);
@@ -100,15 +101,16 @@
     transform: scale(0.95);
   }
   
-  #reginput[type=text], #reginput[type=password], #reginput[type=email], #reginput[type=number]{
-    background-color: #3f3f3f;
+  .regwrapper input[type=text],.regwrapper input[type=password],.regwrapper input[type=email],.regwrapper input[type=number]{
+    background-color: rgb(15, 15, 15);
     border: none;
     color: #ffffff;
-    padding: .5rem 2rem;
+    padding: .7rem 2rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 14px;
+    font-weight:500;
+    font-size: 15px;
     margin: .3rem;
     width: 85%;
     border: 3px solid #f6f6f6;
@@ -124,13 +126,15 @@
 
   
   
-  #input[type=text], input[type=email]:focus {
-    background-color: #fff;
+  .regwrapper input[type=text],.regwrapper input[type=email],.regwrapper input[type=password]:focus {
+    background-color: rgb(19, 19, 19);
     border-bottom: 2px solid #ffffff;
   }
   
-  #input[type=text]:placeholder {
+  .regwrapper input[type=text]:placeholder {
     color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
   }
   
   
@@ -138,7 +142,7 @@
   /* ANIMATIONS */
   
   /* Simple CSS3 Fade-in-down Animation */
-  .regfadeInDown {
+  .regwrapper.regfadeInDown {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-animation-duration: 1s;
@@ -178,7 +182,7 @@
   @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   
-  .regfadeIn {
+  .regwrapper.regfadeIn {
     opacity:0;
     -webkit-animation:fadeIn ease-in 1;
     -moz-animation:fadeIn ease-in 1;
@@ -193,32 +197,32 @@
     animation-duration:1s;
   }
   
-  .regfadeIn.first {
+  .regwrapper.regfadeIn.first {
     -webkit-animation-delay: 0.4s;
     -moz-animation-delay: 0.4s;
     animation-delay: 0.4s;
   }
   
-  .fadeIn.second {
+  .regwrapper.fadeIn.second {
     -webkit-animation-delay: 0.6s;
     -moz-animation-delay: 0.6s;
     animation-delay: 0.6s;
   }
   
-  .fadeIn.third {
+  .regwrapper.fadeIn.third {
     -webkit-animation-delay: 0.8s;
     -moz-animation-delay: 0.8s;
     animation-delay: 0.8s;
   }
   
-  .fadeIn.fourth {
+  .regwrapper.fadeIn.fourth {
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
     animation-delay: 1s;
   }
   
   /* Simple CSS3 Fade-in Animation */
-  .underlineHover:after {
+  .regwrapper.underlineHover:after {
     display: block;
     left: 0;
     bottom: -10px;
@@ -229,18 +233,18 @@
     transition: width 0.2s;
   }
   
-  .underlineHover:hover {
+  .regwrapper.underlineHover:hover {
     color: #0d0d0d;
   }
   
-  .underlineHover:hover:after{
+  .regwrapper.underlineHover:hover:after{
     width: 100%;
   }
   
   
   /* OTHERS */
   
-  *:focus {
+  *.regwrapper:focus {
       outline: none;
   } 
   

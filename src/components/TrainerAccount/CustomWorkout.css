@@ -1,44 +1,40 @@
-.wrapper {
+
+.workout-middle-wrapper {
+  
+
+  }
+  .workout-middle-wrapper #legday{
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    float: left;
+    width: 100%;
+    height: 100%;
+  }
+  .workout-middle-wrapper #pushday{
     display: flex;
     align-items: center;
     flex-direction: column; 
     justify-content: center;
     width: 100%;
     height: 100%;
-    min-height: 100%;
-    padding: 13%;
-    top: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(0%,70%);
   }
-  /* .wrapperReview {
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    top:50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(0%,70%);
-} */
-  
-  #formContent {
-    -webkit-border-radius: 10px 10px 10px 10px;
+
+.workout-middle-wrapper #workoutContent {
+    -webkit-border-radius: 1px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: rgb(0, 0, 0);
     opacity: 95%;
+    margin-top: 2%;
     box-shadow: ivory;
-    padding: 60%;
-    width: 90%;
-    max-width: 450px;
-    position: relative;
-    padding: 0px;
+
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
     border: .15rem solid #f6f6f6;
   }
   
-  #formFooter {
+.workout-middle-wrapper #workoutformFooter {
     background-color: #ffffff;
     border-top: 1px solid #ffffff;
     padding: .5rem;
@@ -51,11 +47,11 @@
   
   /* TABS */
   
-  .h2.inactive {
+  .workout-middle-wrapper h2.inactive {
     color: #868686;
   }
   
-  .h2.active {
+  .workout-middle-wrapper h2.active {
     color: #0d0d0d;
     border-bottom: 2px solid #aaaaaa;
   }
@@ -64,11 +60,11 @@
   
   /* FORM TYPOGRAPHY*/
   
-  input[type=button], input[type=submit], input[type=reset]  {
+  .workout-middle-wrapper input[type=button], .workout-middle-wrapper input[type=submit], .workout-middle-wrapper input[type=reset]  {
     background-color: #e2e2e2;
     border: none;
     color: rgb(0, 0, 0);
-    padding: .5rem 10.3rem;
+    padding: .5rem 10rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -78,7 +74,7 @@
     box-shadow: 0 10px 30px 0 rgba(255, 255, 255, 0.4);
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
-    margin: 5px 20px 40px 20px;
+    margin: 5px 20px 20px 20px;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
@@ -86,11 +82,11 @@
     transition: all 0.3s ease-in-out;
   }
   
-  input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  .workout-middle-wrapper input[type=button]:hover, .workout-middle-wrapper input[type=submit]:hover, .workout-middle-wrapper input[type=reset]:hover  {
     background-color: #ffffff;
   }
   
-  input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+  .workout-middle-wrapper input[type=button]:active,.workout-middle-wrapper  input[type=submit]:active, .workout-middle-wrapper input[type=reset]:active  {
     -moz-transform: scale(0.95);
     -webkit-transform: scale(0.95);
     -o-transform: scale(0.95);
@@ -98,16 +94,16 @@
     transform: scale(0.95);
   }
   
-  input[type=text], input[type=password] {
+  .workout-middle-wrapper input[type=text], .workout-middle-wrapper input[type=number]{
     background-color: #3f3f3f;
     border: none;
     color: #ffffff;
-    padding: .5rem 5rem;
+    padding: .5rem 2rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: .5rem;
+    font-size: 14px;
+    margin: .3rem;
     width: 85%;
     border: 3px solid #f6f6f6;
     -webkit-transition: all 0.5s ease-in-out;
@@ -119,12 +115,15 @@
     border-radius: 5px 5px 5px 5px;
   }
   
+
   
-  .input[type=text]:focus input[type=password]:focus {
+  
+  .workout-middle-wrapper input[type=text], .workout-middle-wrapper input[type=number]:focus {
+    background-color: #fff;
     border-bottom: 2px solid #ffffff;
   }
   
-  input[type=text]:placeholder {
+  .workout-middle-wrapper input[type=text]:placeholder {
     color: #ffffff;
   }
   
@@ -133,7 +132,7 @@
   /* ANIMATIONS */
   
   /* Simple CSS3 Fade-in-down Animation */
-  .fadeInDown {
+  .workout-middle-wrapper.workoutfadeInDown {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-animation-duration: 1s;
@@ -173,7 +172,7 @@
   @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
   
-  .fadeIn {
+  .workout-middle-wrapper .workoutfadeIn {
     opacity:0;
     -webkit-animation:fadeIn ease-in 1;
     -moz-animation:fadeIn ease-in 1;
@@ -188,32 +187,32 @@
     animation-duration:1s;
   }
   
-  .fadeIn.first {
+  .workout-middle-wrapper.workoutfadeIn.first {
     -webkit-animation-delay: 0.4s;
     -moz-animation-delay: 0.4s;
     animation-delay: 0.4s;
   }
   
-  .fadeIn.second {
+  .workout-middle-wrapper .workoutfadeIn.second {
     -webkit-animation-delay: 0.6s;
     -moz-animation-delay: 0.6s;
     animation-delay: 0.6s;
   }
   
-  .fadeIn.third {
+  .workout-middle-wrapper .wourkoutfadeIn.third {
     -webkit-animation-delay: 0.8s;
     -moz-animation-delay: 0.8s;
     animation-delay: 0.8s;
   }
   
-  .fadeIn.fourth {
+  .workout-middle-wrapper .workoutfadeIn.fourth {
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
     animation-delay: 1s;
   }
   
   /* Simple CSS3 Fade-in Animation */
-  .underlineHover:after {
+  .workout-middle-wrapper .workoutunderlineHover:after {
     display: block;
     left: 0;
     bottom: -10px;
@@ -224,22 +223,20 @@
     transition: width 0.2s;
   }
   
-  .underlineHover:hover {
+  .workout-middle-wrapper .workoutunderlineHover:hover {
     color: #0d0d0d;
   }
   
-  .underlineHover:hover:after{
+  .workout-middle-wrapper .workoutunderlineHover:hover:after{
     width: 100%;
   }
+  .workout-middle-wrapper #workoutlabel{
+    background-color: rgb(189, 189, 189);
+    border-radius: 5%;
+    text-align: center;
+}
   
   
   /* OTHERS */
   
-  *:focus {
-      outline: none;
-  } 
-  
-  #icon {
-    width:60%;
-  }
   
