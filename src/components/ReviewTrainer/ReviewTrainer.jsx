@@ -54,7 +54,7 @@ const ReviewTrainer = ({user}) => {
     <p class="card-text"><div class="form-group">
         <form className="review" onSubmit={(event) => handleSubmit (event)}>
         <label class="col-form-label col-form-label-sm mt-4" for="inputSmall"></label>
-        <input onChange={handleChangeOne}  placeholder="Leave A review!" class="form-control form-control-sm" type="text" name = 'review' value={review} id="inputLarge"/><br/>
+        <input onChange={handleChangeOne}  placeholder="Leave a review!" class="form-control form-control-sm" type="text" name = 'review' value={review} id="inputLarge"/><br/>
         <button type="submit" class="btn btn-outline-dark" >Submit Review!</button>
     </form>
     </div></p>

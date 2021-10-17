@@ -43,6 +43,10 @@ const ChooseTrainer = (props) => {
 );
       }
     return( 
+        <React.Fragment>
+        <div className="forums">
+          <h1>Choose a Trainer</h1>
+          </div>
      
         <table className='trainer-table'>
             <thead>
@@ -65,7 +69,7 @@ const ChooseTrainer = (props) => {
                      </tr>
                      </tbody></>)}
              
-            </table>
+            </table></React.Fragment>
   );
 }
 

@@ -204,9 +204,9 @@ class ModifyWorkout extends Component {
 
             <input onChange={this.handleChange}  type="text" name = 'day2ex3' placeholder="Exercise 3" required value ={this.state.day2ex3}/>
 
-            <input onChange={this.handleChange}  type="number" name = 'day2ex3sets' placeholder="Add a Note" required value ={this.state.day2ex3sets}/>
+            <input onChange={this.handleChange}  type="number" name = 'day2ex3sets' placeholder="Sets" required value ={this.state.day2ex3sets}/>
 
-            <input onChange={this.handleChange}  type="number" name = 'day2ex3reps' placeholder="Sets" required value ={this.state.day2ex3reps}/>
+            <input onChange={this.handleChange}  type="number" name = 'day2ex3reps' placeholder="Reps" required value ={this.state.day2ex3reps}/>
 
             <input onChange={this.handleChange}  type="text" name = 'day2ex4' placeholder="Exercise 4" required value ={this.state.day2ex4}/>
 
