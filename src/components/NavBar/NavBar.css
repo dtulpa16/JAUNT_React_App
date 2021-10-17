@@ -1,9 +1,11 @@
 .navbar-brand{
     font-size: 2rem;
-    padding-left: .01rem;
+    padding-left: .5rem;
     letter-spacing: -.03rem;
 }
-.dropdown-menu {
-    left: auto;
-    right: 0;
-  }
+
+.dropdown-menu-left {
+    top: 0;
+    left: -10rem; /* 10rem is the min-width of dropdown-menu */
+    position: relative;
+}

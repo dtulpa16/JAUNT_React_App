@@ -33,7 +33,7 @@ async function getCurrentUser(){
 return ( 
   <div class="container">  
   <div class="row" >
-      <div class="col-md-6">
+      <div class="col-md-7">
       <h6 className="DOW">Day 1 - Legs</h6>
       <table className="legs-table">
          <thead>
@@ -185,17 +185,17 @@ return (
                    </tbody></>)}
           </table></div> 
 
-          <div class="col-md-6">
+          <div class="col-md-5">
              <h6 className="subtext">Workout Substitutions</h6>
              <div className="subs">
           <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
         Leg Exercise Substitutions
       </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
          <LegSub/>
       </div>

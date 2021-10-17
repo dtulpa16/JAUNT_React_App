@@ -2,16 +2,16 @@
 
 .quote{ 
   display: flex;
-  text-align:justify;
+  text-align:center;
   padding-left: 15%;
   width: 83vw;
   height: 75vh;
   align-items: center;
   justify-content: center;
-  -webkit-animation: fadeIn 5s;
-  -moz-animation: fadeIn 5s;
-  -o-animation: fadeIn 5s;
-  -ms-animation: fadeIn 5s;
+  -webkit-animation: fadeIn 4s;
+  -moz-animation: fadeIn 4s;
+  -o-animation: fadeIn 4s;
+  -ms-animation: fadeIn 4s;
   color: #fff;
   font-size: 35px;
   font-family: 'Fira Mono', monospace;
@@ -19,34 +19,13 @@
 }
 
 
-.div{
-  animation: glitch 1s linear infinite;
-}
 
-@keyframes glitch{
-  2%,64%{
-    transform: translate(2px,0) skew(0deg);
-  }
-  4%,60%{
-    transform: translate(-2px,0) skew(0deg);
-  }
-  62%{
-    transform: translate(0,0) skew(5deg); 
-  }
-}
 
-.div:before,
-.div:after{
-  content: attr(title);
-  position: absolute;
-  left: 0;
-}
 
-.div:before{
-  animation: glitchTop 1s linear infinite;
-  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-}
+
+
+
+
 
 @keyframes glitchTop{
   2%,64%{
@@ -61,7 +40,7 @@
 }
 
 .div:after{
-  animation: glitchBotom 1.5s linear infinite;
+  animation: glitchBotom 2s linear infinite;
   clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
   -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
 }

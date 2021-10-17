@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import './ClientNutrition.css'
 
 
 const ClientNutrition = (props) => {
@@ -25,11 +26,19 @@ async function getCurrentUser(){
 }
 
 return ( 
-<div>
+<div className="nutrition">
   {/* {console.log(currentUser)}
   {currentUser.map((element)=><h1>{element.calories}</h1>)} */}
   {console.log(currentUser)}
-  <h1>{currentUser.calories} calories</h1>
+  
+  <h2>Your daily recommended calorie intake is</h2><h1>{currentUser.calories} calories</h1><br/>
+  <p>
+  <h3>Nutrition Basics 101</h3>
+    Simply put, you CANNOT outwork a bad diet. No matter what your fitness goals are, if you stray too far from your recommended caloric intake, you will not achieve your goals.<br/> If you are a new user and have not 
+    been contacted by your trainer in regards to a modification to your caloric intake, the displayed recommended daily caloric was calculated from your provided information upon registration(i.e. age, height, weight, gender, and fitness goals).<br/>
+    There are countless amounts of apps and websites that you can use to track your calories as you consume them. It is recommended that you use one of these applications during your fitness journey. These are very useful for holding yourself accountable
+    when it comes to your diet.
+  </p>
 </div>
 );
 }

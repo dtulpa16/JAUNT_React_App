@@ -27,7 +27,9 @@ const TrainerAccount = ({user}) => {
 
   return ( 
     <React.Fragment>
-
+      <div className="forums">
+          <h1>My Clients</h1>
+          </div>
          
         <div id='trainer-wrapper'><div id = 'clientContent'>{clients.map((element)=><ClientInfo id = {element.client}/>)}</div></div>
 

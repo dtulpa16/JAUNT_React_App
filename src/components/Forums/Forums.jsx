@@ -45,13 +45,15 @@ const Forums = ({user}) => {
 
     return ( 
         <React.Fragment>
+          <div className="forums">
           <h1>Forums</h1>
-                 <form className= "post" onSubmit={(event) => handleSubmit (event)}>
-                <label>Add A Post!</label>
-                <input name= "post" onChange={handleChange} value={post}/>
-                <button type = "submit">Post!</button>
+                <form className = "post" onSubmit={(event) => handleSubmit (event)}>
+                <h6>Add A Post!</h6>
+                <input class ="post" name= "post" onChange={handleChange} value={post}/>
+                <button type="submit" class="btn btn-outline-dark" >Post!</button>
                 </form> 
-                <div><DisplayForumPost posts ={post} user = {user} rerender = {renderNewPost}/></div>
+                <div className="post"><DisplayForumPost posts ={post} user = {user} rerender = {renderNewPost}/></div>
+                </div>
         </React.Fragment>
      );
 }

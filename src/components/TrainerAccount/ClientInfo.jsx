@@ -27,7 +27,7 @@ const ClientInfo = (props) => {
   
   
     return ( 
-
+        
         <table className="table-clients">
         <thead>
         <tr className="table-client-contents">

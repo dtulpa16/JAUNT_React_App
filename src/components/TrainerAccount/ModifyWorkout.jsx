@@ -138,7 +138,7 @@ class ModifyWorkout extends Component {
       const jwt =localStorage.getItem('token');
             let response = await axios.put(`http://127.0.0.1:8000/api/applicationFunctions/workout/${this.state.clientWorkout[0].id}/`, workout, { headers: {Authorization: 'Bearer ' + jwt}})
         }
-        
+        alert('Workout Submitted!')
     }
 //     <div class="regwrapper regfadeInDown">
 //     <div id="registerContent">

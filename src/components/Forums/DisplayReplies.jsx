@@ -27,7 +27,7 @@ const DisplayReplies = (props) => {
 
     return(
         <React.Fragment>
-        Replies:<br/>{replies.map((element)=><><div><p><ReviewCreater user= {element.user}/></p></div> <div><p>{element.body}</p></div></>)}
+        {replies.map((element)=><><div><ReviewCreater user= {element.user}/></div> <div><h6>{element.body}</h6></div></>)}
         </React.Fragment>
     )}
 export default DisplayReplies;

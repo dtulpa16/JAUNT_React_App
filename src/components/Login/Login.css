@@ -20,6 +20,15 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(0%,70%);
 } */
+.wrapper h5{
+  margin-top: -10%;
+  color: #e2e2e2;
+  font-weight:normal;
+  text-shadow: ivory;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #1f1f1f62;
+
+}
   
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -120,7 +129,7 @@
   }
   
   
-  .input[type=text]:focus input[type=password]:focus {
+  input[type=text]:focus input[type=password]:focus {
     border-bottom: 2px solid #ffffff;
   }
   
@@ -195,9 +204,9 @@
   }
   
   .fadeIn.second {
-    -webkit-animation-delay: 0.6s;
-    -moz-animation-delay: 0.6s;
-    animation-delay: 0.6s;
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    animation-delay: 2s;
   }
   
   .fadeIn.third {

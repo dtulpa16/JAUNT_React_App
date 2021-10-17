@@ -1,5 +1,5 @@
 import "bootswatch/dist/lux/bootstrap.min.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import {Switch, Route} from 'react-router-dom';
 import { Redirect } from 'react-router';
@@ -26,6 +26,7 @@ import ModifyCals from './TrainerAccount/ModifyCals';
 import NewNavBar from './NavBar/NewNavBar';
 import ModifyWorkout from "./TrainerAccount/ModifyWorkout";
 import ReviewTrainer from "./ReviewTrainer/ReviewTrainer";
+import Logout from "./Logout";
 
 
 
@@ -75,6 +76,7 @@ render(){
                 <Route path="/fromtheexperts" component={FromTheExperts}/>
                 <Route path="/home" component={Home}/>
                 <Route path="/login" component = {Login}/>
+                <Route path="/logout" component = {Logout}/>
                 <Route path="/traineraccount" render = {props=> <TrainerAccount {...props} user = {user}/>}/>
                 <Route path="/trainerregister" component={TrainerRegister}/>
                 <Route path="/choosetrainer" component={ChooseTrainer}/>

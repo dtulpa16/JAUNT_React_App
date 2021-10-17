@@ -1,4 +1,4 @@
-.wrapperReview {
+.wrapperCals {
     height: 100%;
     width: 50%;
     align-items: center;
@@ -6,16 +6,16 @@
     align-content: center;
     top:50%;
     -ms-transform: translate(-50%, -50%);
-    transform: translate(50%,75%);
+    transform: translate(50%,15%);
 }
 
-.wrapperReview input{
-    background-color: #c5c5c5;
+.wrapperCals input{
+    background-color: #494949;
     border: none;
     color: #000000;
-    font-size: 15px;
-    width: 97%;
-    border: .1rem solid #555555;
+    font-size: 14px;
+    width: 90%;
+    border: .1rem solid #f6f6f6;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
@@ -23,9 +23,9 @@
     transition: all 0.5s ease-in-out;
 }
 
-.wrapperReview button{
-    align-items: center;
-    justify-content: center;
+.wrapperCals img{
+    position: relative;
     align-content: center;
-    margin-left: 42%;
+    justify-content: center;
+    margin-left: 44%;
 }

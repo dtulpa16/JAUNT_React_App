@@ -1,10 +1,10 @@
+import './NavBar.css'
 import "bootswatch/dist/lux/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import React from "react";
 import Logout from "../Logout";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import './NavBar.css'
 
 
 
@@ -57,8 +57,7 @@ const NewNavBar = ({user}) => {
         </li>
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Trainer</a>
-        <div class="dropdown-menu dropdown-menu-left">
-          <Link to ='/fromtheexperts'><a class="dropdown-item">My Trainer's Blog</a></Link>
+        <div class="dropdown-menu">
           <Link to ='/reviewtrainer'><a class="dropdown-item">Review Your Trainer</a></Link>
           </div>
           </li>
@@ -78,9 +77,6 @@ const NewNavBar = ({user}) => {
         <li class="nav-item">
         <Link to ='/forums'><a class="nav-link">Forums</a></Link>
         </li>
-        <li class="nav-item">
-        <Link to ='/fromtheexperts'><a class="nav-link">My Blog</a></Link>
-        </li>
         <li class = "nav-item"><Logout/></li>
         </React.Fragment>
         }
@@ -89,8 +85,8 @@ const NewNavBar = ({user}) => {
         <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Register</a>
           <div class="dropdown-menu">
-          <Link to ='/clientregister'><a class="dropdown-item">Register As New Client</a></Link>
-          <Link to ='/trainerregister'><a class="dropdown-item">Register As New Trainer</a></Link>
+          <Link to ='/clientregister'><a class="dropdown-item">New Client</a></Link>
+          <Link to ='/trainerregister'><a class="dropdown-item">New Trainer</a></Link>
           </div>
         </li>
         </React.Fragment>

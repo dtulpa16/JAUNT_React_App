@@ -32,8 +32,8 @@ const Login = () => {
   
     return (
         <div class="wrapper fadeInDown">
-         <div id="formContent">
 
+         <div id="formContent">
         <div class="fadeIn first">
         <img src="https://static.vecteezy.com/system/resources/thumbnails/003/285/077/small/alphabet-letter-logo-icon-for-business-and-company-creative-template-vector.jpg" width="30%" height="70%" />
         </div>

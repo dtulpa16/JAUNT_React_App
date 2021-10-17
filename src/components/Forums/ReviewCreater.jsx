@@ -25,7 +25,7 @@ const ReviewCreater = (props) => {
 
     return ( 
         <div>  
-        User: {replier.username} {replier.is_employee && <span class="badge rounded-pill bg-success">Trainer</span>}
+        <p>User: {replier.username} {replier.is_employee && <span class="badge rounded-pill bg-success">Trainer</span>}</p>
         </div>
      );
 }

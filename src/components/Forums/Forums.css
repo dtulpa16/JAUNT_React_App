@@ -1,10 +1,83 @@
 .post{
     text-align: left;
-    background-color: rgba(255,255,255,0.5);
-    border-radius: .1rem;
+    background-color: rgb(153, 153, 153);
+    opacity: 95%;
+    width: 97%;
+    transform: translate(1%,10%);
+    border-color: rgba(180, 180, 180, 0.534);
+    text-indent: .5%;
+    height: 10%;
+    padding: 1rem;
 }
 .reply{
-    text-align: left;
-    background-color: rgb(255, 255, 255);
-    border-radius: .1rem;
+    float: right;
+    width: 99%;
+    margin-top: -.4rem;
+    background-color: rgb(218, 218, 218);
+
+    border-bottom: .1rem solid #5f5f5f;
+    border-left: .1rem solid #5f5f5f;
+
+}
+
+.makereply{
+    width: 50%;
+}
+.makereply input{
+    background-color: #494949;
+    border: none;
+    color: #000000;
+    font-size: 14px;
+    width: 90%;
+    border: .0rem solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.makereply form{
+
+    width: 100%;
+    padding-left: .6%;
+
+}
+
+.forumpost{
+    background-color: rgb(241, 241, 241);
+}
+
+.forums{
+    width: 100%;
+}
+
+.forums h1{
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.forums form .post{
+    align-content: center;
+    justify-content: center;
+    width: 50%;
+    background-color: white;
+    border-color: rgba(255, 255, 255, 0.534);
+}
+.forums input .post{
+    background-color: #c9c9c9;
+    border: none;
+    color: #000000;
+    font-size: 14px;
+    width: 50%;
+    border: .0rem solid #f6f6f6;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.forums button{
+    margin-left: 1rem;
 }

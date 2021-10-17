@@ -1,4 +1,4 @@
-
+import './Logout.css'
 //Logs out customer by clearing the local storage of the bearer token
 const Logout = () => {
     
@@ -7,8 +7,10 @@ const Logout = () => {
         window.location.href = '/';
     }
     return ( 
-            <button class="nav-link active" onClick={handleClick}>Logout</button>
-        );
+        <div className='logout'>
+            <a type="button" class="btn btn-dark btn-sm" onClick={handleClick}>Logout</a>
+        </div>
+            );
 }
         
 export default Logout;

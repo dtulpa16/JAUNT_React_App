@@ -1,0 +1,33 @@
+.nutrition{
+    justify-content:center;
+    align-items: center;
+    flex-direction: column; 
+    text-align: center;
+    position:static;
+    align-content: center;
+    width: 60%;
+    height: 20%;
+    transform: translate(35%,30%);
+    -webkit-border-radius: 1px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    opacity: 90%;
+    padding: 2%;
+    border: .2rem solid #696969;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    background-color: rgb(254, 255, 255);
+}
+.nutrition h3{
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(197, 197, 197);
+    font-size: 140%;
+    text-decoration: underline;
+}
+.nutrition p{
+    text-align: center;
+    justify-content: center;
+    background-color: rgb(230, 230, 230);
+    font-size: 110%;
+    font-weight: 600;
+}
