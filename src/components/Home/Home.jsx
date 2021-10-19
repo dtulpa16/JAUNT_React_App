@@ -21,7 +21,7 @@ const Home = (props) => {
   return ( 
     <React.Fragment>
     <div className='quote'>
-    <div className = 'div' title="404">{quote.text} <br/> -{quote.author}</div>
+    <div className = 'div'>{quote.text} <br/> -{quote.author}</div>
     </div>
     </React.Fragment>
    );

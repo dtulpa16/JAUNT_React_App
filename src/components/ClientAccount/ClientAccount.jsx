@@ -34,6 +34,7 @@ return (
   <div class="container">  
   <div class="row" >
       <div class="col-md-7">
+         <div className='fadeInDown'>
       <h6 className="DOW">Day 1 - Legs</h6>
       <table className="legs-table">
          <thead>
@@ -183,9 +184,10 @@ return (
                       <td>{element.day2ex3reps}</td>
                    </tr>
                    </tbody></>)}
-          </table></div> 
+          </table></div> </div>
 
           <div class="col-md-5">
+          <div class="fadeInDown">
              <h6 className="subtext">Workout Substitutions</h6>
              <div className="subs">
           <div class="accordion" id="accordionExample">
@@ -223,7 +225,7 @@ return (
       <div class="accordion-body">
          <PushSub/>
       </div>
-    </div>
+    </div></div>
   </div>
 </div>
 </div></div>
