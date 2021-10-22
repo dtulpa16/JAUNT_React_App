@@ -46,6 +46,7 @@ const ReviewTrainer = ({user}) => {
 
 
   return ( 
+    <div class="fadeInDown">
     <div className="wrapperReview">
     <div class="card bg-light mb-3">
     <div class="card-header">Review Trainer</div>
@@ -60,7 +61,7 @@ const ReviewTrainer = ({user}) => {
     </div></p>
   </div>
 </div>
-</div>
+</div></div>
    );
 }
 

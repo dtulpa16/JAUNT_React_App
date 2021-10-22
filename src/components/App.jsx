@@ -73,7 +73,7 @@ render(){
                 <Route path="/reviewcreater" render = {props=> <ReviewCreater {...props} user = {user}/>}/>
                 <Route path="/clientregister" component={ClientRegister}/>
                 <Route path="/exercises" component={Excercises}/>
-                <Route path="/fromtheexperts" component={FromTheExperts}/>
+                <Route path="/fromtheexperts" render = {props=> <FromTheExperts {...props} user = {user}/>}/>
                 <Route path="/home" component={Home}/>
                 <Route path="/login" component = {Login}/>
                 <Route path="/logout" component = {Logout}/>

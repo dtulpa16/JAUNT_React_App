@@ -55,6 +55,9 @@ const NewNavBar = ({user}) => {
         <li class="nav-item">
         <Link to ='/forums'><a class="nav-link">Forums</a></Link>
         </li>
+        <li class="nav-item">
+        <Link to ='/fromtheexperts'><a class="nav-link">Trainer Blog</a></Link>
+        </li>
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Trainer</a>
         <div class="dropdown-menu">

@@ -26,6 +26,7 @@ async function getCurrentUser(){
 }
 
 return ( 
+  <div class="fadeInDown">
 <div className="nutrition">
   {/* {console.log(currentUser)}
   {currentUser.map((element)=><h1>{element.calories}</h1>)} */}
@@ -39,7 +40,7 @@ return (
     There are countless amounts of apps and websites that you can use to track your calories as you consume them. It is recommended that you use one of these applications during your fitness journey. These are very useful for holding yourself accountable
     when it comes to your diet.
   </p>
-</div>
+</div></div>
 );
 }
 
